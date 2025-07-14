@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "index.html#outline",
+    "href": "index.html#outline",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Outline",
+    "text": "Outline\n\nBrief overview of fNIRS\nDesiging an fNIRS experiments\nHardware\nSoftware\nData acquisition\nData preprocessing and analysis\nQ&A"
+  },
+  {
+    "objectID": "index.html#the-rationale-behind-fnirs",
+    "href": "index.html#the-rationale-behind-fnirs",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "The rationale behind fNIRS",
+    "text": "The rationale behind fNIRS\n\nSome materials, have different optical properties than others (e.g., they absorbe light of different colors)\n\n[ADD LIGHT WAVELENGHTS]\n\nWe can study the composition of an object by analysing how light behaves when passing through it (i.g., spectroscopy)\n\n[ADD DIAGRAM ABOUT ABSORTION AND SCATTERING]\n\nOxy-haemoglobin (HbO) and deoxy-haemoglobin (HbR) have absorb near-infrared light differently\nIf we shine near-infrared light into biological tissue, we can estimate changes in relative concentration of HbO and HbR time (functional)\n\n[ADD MLLB EQUATION]\n\nIn brain tissue, neuronal activity is followed by BOLD response. Using fNIRS, we can measure BOLD signal as a proxy of brain activity in an area."
+  },
+  {
+    "objectID": "index.html#desiging-an-fnirs-experiments",
+    "href": "index.html#desiging-an-fnirs-experiments",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Desiging an fNIRS experiments",
+    "text": "Desiging an fNIRS experiments\n\nLow temporal resolution: the BOLD response takes time! (~15 seconds)\nTwo main types of experimental designs:\n\nBlock design"
+  },
+  {
+    "objectID": "index.html#desiging-an-fnirs-experiments-1",
+    "href": "index.html#desiging-an-fnirs-experiments-1",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Desiging an fNIRS experiments",
+    "text": "Desiging an fNIRS experiments\n\nLow temporal resolution: the BOLD response takes time! (~15 seconds)\nTwo main types of experimental designs:\n\nBlock designs\nEvent-related designs"
+  },
+  {
+    "objectID": "index.html#working-with-the-youngest",
+    "href": "index.html#working-with-the-youngest",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Working with the youngest",
+    "text": "Working with the youngest"
+  },
+  {
+    "objectID": "index.html#hardware",
+    "href": "index.html#hardware",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Hardware",
+    "text": "Hardware\nVideo"
+  },
+  {
+    "objectID": "index.html#software",
+    "href": "index.html#software",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Software",
+    "text": "Software"
+  },
+  {
+    "objectID": "index.html#data-acquisition",
+    "href": "index.html#data-acquisition",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Data acquisition",
+    "text": "Data acquisition"
+  },
+  {
+    "objectID": "index.html#data-preprocessing-and-analysis",
+    "href": "index.html#data-preprocessing-and-analysis",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Data preprocessing and analysis",
+    "text": "Data preprocessing and analysis"
+  },
+  {
+    "objectID": "index.html#references",
+    "href": "index.html#references",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "References",
+    "text": "References"
+  }
+]
