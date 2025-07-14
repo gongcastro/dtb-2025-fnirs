@@ -1,0 +1,35 @@
+project:
+  type: website
+  preview:
+    port: 4000
+    browser: true
+  output-dir: docs
+
+title: "fNIRS in the Neurodevelopment of Cognition"
+subtitle: "Recording and Analysis"
+format:
+  prezconf-revealjs:
+    self-contained: false
+    from: markdown+emoji
+    transition: fade
+    progress: true
+    preload-iframes: true
+    link-external-newwindow: true
+    github: gongcastro
+
+authors:
+  - Gonzalo García-Castro
+
+resources: 
+    - "img/setup.mp4"
+
+echo: false
+warning: false
+fig-dpi: 800
+
+bibliography: references.bib
+scrollable: true
+show-slide-number: all
+slide-number: c
+date: "2025-07-21"
+conference: Deep Tech Brain Summer School 2024-2025

@@ -1,0 +1,64 @@
+## Outline
+
+1) Brief overview of fNIRS
+2) Desiging an fNIRS experiments
+3) Hardware
+4) Software
+5) Data acquisition
+6) Data preprocessing and analysis
+7) Q&A
+
+# What is fNIRS?
+
+Functional Near-Infrared Spectroscopy
+
+## The rationale behind fNIRS
+
+- Some materials, have different optical properties than others (e.g., they absorbe light of different colors)
+
+[ADD LIGHT WAVELENGHTS]
+
+- We can study the composition of an object by analysing how light behaves when passing through it (i.g., **spectroscopy**)
+
+[ADD DIAGRAM ABOUT ABSORTION AND SCATTERING]
+
+- Oxy-haemoglobin (HbO) and deoxy-haemoglobin (HbR) have absorb **near-infrared light** differently
+
+- If we shine near-infrared light into biological tissue, we can estimate changes in relative concentration of HbO and HbR time (**functional**)
+
+[ADD MLLB EQUATION]
+
+- In brain tissue, neuronal activity is followed by BOLD response. Using fNIRS, we can measure BOLD signal as a proxy of brain activity in an area.
+
+## Desiging an fNIRS experiments
+
+- Low temporal resolution: the BOLD response takes time! (~15 seconds)
+- Two main types of experimental designs:
+  a) Block design
+
+## Desiging an fNIRS experiments
+
+- Low temporal resolution: the BOLD response takes time! (~15 seconds)
+- Two main types of experimental designs:
+  a) Block designs
+  a) Event-related designs
+
+## Working with the youngest
+
+## Hardware
+
+![](img/setup.mp4)
+
+## Software
+
+## Data acquisition
+
+## Data preprocessing and analysis
+
+# Questions and answers
+
+# Appendix
+
+## References
+
+
