@@ -7,66 +7,367 @@
     "text": "Outline\n\nBrief overview of fNIRS\nDesiging an fNIRS experiments\nHardware\nSoftware\nData acquisition\nData preprocessing and analysis\nQ&A"
   },
   {
+    "objectID": "index.html#the-fnirs-glossary-project",
+    "href": "index.html#the-fnirs-glossary-project",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "The fNIRs Glossary project",
+    "text": "The fNIRs Glossary project\nCommunity-sourced glossary (Stute et al. 2025)\nhttps://openfnirs.org/standards/fnirs-glossary-project/"
+  },
+  {
     "objectID": "index.html#the-rationale-behind-fnirs",
     "href": "index.html#the-rationale-behind-fnirs",
     "title": "fNIRS in the Neurodevelopment of Cognition",
     "section": "The rationale behind fNIRS",
-    "text": "The rationale behind fNIRS\n\nSome materials, have different optical properties than others (e.g., they absorbe light of different colors)\n\n[ADD LIGHT WAVELENGHTS]\n\nWe can study the composition of an object by analysing how light behaves when passing through it (i.g., spectroscopy)\n\n[ADD DIAGRAM ABOUT ABSORTION AND SCATTERING]\n\nOxy-haemoglobin (HbO) and deoxy-haemoglobin (HbR) have absorb near-infrared light differently\nIf we shine near-infrared light into biological tissue, we can estimate changes in relative concentration of HbO and HbR time (functional)\n\n[ADD MLLB EQUATION]\n\nIn brain tissue, neuronal activity is followed by BOLD response. Using fNIRS, we can measure BOLD signal as a proxy of brain activity in an area."
+    "text": "The rationale behind fNIRS\n\n\nSome materials have different optical properties than others (e.g., they absorbe more light of some colors)\n\n\n\nhttps://commons.wikimedia.org/wiki/File:EM_spectrumrevised.png"
   },
   {
-    "objectID": "index.html#desiging-an-fnirs-experiments",
-    "href": "index.html#desiging-an-fnirs-experiments",
+    "objectID": "index.html#the-rationale-behind-fnirs-1",
+    "href": "index.html#the-rationale-behind-fnirs-1",
     "title": "fNIRS in the Neurodevelopment of Cognition",
-    "section": "Desiging an fNIRS experiments",
-    "text": "Desiging an fNIRS experiments\n\nLow temporal resolution: the BOLD response takes time! (~15 seconds)\nTwo main types of experimental designs:\n\nBlock design"
+    "section": "The rationale behind fNIRS",
+    "text": "The rationale behind fNIRS\n\n\nWe can study the composition of an object by analysing how light behaves when passing through it (i.g., spectroscopy)"
   },
   {
-    "objectID": "index.html#desiging-an-fnirs-experiments-1",
-    "href": "index.html#desiging-an-fnirs-experiments-1",
+    "objectID": "index.html#the-rationale-behind-fnirs-2",
+    "href": "index.html#the-rationale-behind-fnirs-2",
     "title": "fNIRS in the Neurodevelopment of Cognition",
-    "section": "Desiging an fNIRS experiments",
-    "text": "Desiging an fNIRS experiments\n\nLow temporal resolution: the BOLD response takes time! (~15 seconds)\nTwo main types of experimental designs:\n\nBlock designs\nEvent-related designs"
+    "section": "The rationale behind fNIRS",
+    "text": "The rationale behind fNIRS\n\n\nOxy-haemoglobin (HbO) and deoxy-haemoglobin (HbR) have absorb near-infrared light differently\n\n\n\n\nFigure 1: Optical absorption of haemoglobin."
   },
   {
-    "objectID": "index.html#working-with-the-youngest",
-    "href": "index.html#working-with-the-youngest",
+    "objectID": "index.html#the-rationale-behind-fnirs-3",
+    "href": "index.html#the-rationale-behind-fnirs-3",
     "title": "fNIRS in the Neurodevelopment of Cognition",
-    "section": "Working with the youngest",
-    "text": "Working with the youngest"
+    "section": "The rationale behind fNIRS",
+    "text": "The rationale behind fNIRS\n\n\nIf we shine near-infrared light into biological tissue, we can estimate changes in relative concentration of HbO and HbR time (functional)\n\n\nModified Beer-Lambert law:\n\\[\n\\Delta A(\\lambda_1) = \\text{DPF} \\cdot r \\cdot [\\epsilon_{\\text{HbO}} (\\lambda_1) \\cdot \\Delta c_{\\text{HbO}} + \\epsilon_{\\text{HbR}}(\\lambda_1) \\cdot \\Delta c_{\\text{HbR}}]\n\\qquad(1)\\]\n\\[\n\\Delta A(\\lambda_2) = \\text{DPF} \\cdot r \\cdot [\\epsilon_{\\text{HbO}} (\\lambda_2) \\cdot \\Delta c_{\\text{HbO}} + \\epsilon_{\\text{HbR}}(\\lambda_2) \\cdot \\Delta c_{\\text{HbR}}]\n\\qquad(2)\\]\n\n\\(\\text{DPF}\\): differential pathlength factor\n\\(\\epsilon_{\\text{HbO, HbR}}\\): molar decadic absorption coefficient\n\\(\\Delta c_{\\text{HbO, HbR}}\\): concentration change in HbO or HbR."
   },
   {
-    "objectID": "index.html#hardware",
-    "href": "index.html#hardware",
+    "objectID": "index.html#the-rationale-behind-fnirs-4",
+    "href": "index.html#the-rationale-behind-fnirs-4",
     "title": "fNIRS in the Neurodevelopment of Cognition",
-    "section": "Hardware",
-    "text": "Hardware\nVideo"
+    "section": "The rationale behind fNIRS",
+    "text": "The rationale behind fNIRS\n\n\nIn brain tissue, neuronal activity is followed by BOLD response. Using fNIRS, we can measure BOLD signal as a proxy of brain activity in an area.\n\n\n\nCinciute (2019), PeerJ. https://doi.org/10.7717/peerj.6621"
   },
   {
-    "objectID": "index.html#software",
-    "href": "index.html#software",
+    "objectID": "index.html#desiging-fnirs-experiments",
+    "href": "index.html#desiging-fnirs-experiments",
     "title": "fNIRS in the Neurodevelopment of Cognition",
-    "section": "Software",
-    "text": "Software"
+    "section": "Desiging fNIRS experiments",
+    "text": "Desiging fNIRS experiments\n\nLow temporal resolution: the BOLD response takes time! (~15 seconds)\nTwo main types of experimental designs\n\n\nArco et al. (2018)"
+  },
+  {
+    "objectID": "index.html#desiging-fnirs-experiments-1",
+    "href": "index.html#desiging-fnirs-experiments-1",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Desiging fNIRS experiments",
+    "text": "Desiging fNIRS experiments\nWorking with the youngest\n\nNo instructions\nPlenty of movement\nShort attention and memory span"
   },
   {
     "objectID": "index.html#data-acquisition",
     "href": "index.html#data-acquisition",
     "title": "fNIRS in the Neurodevelopment of Cognition",
     "section": "Data acquisition",
-    "text": "Data acquisition"
+    "text": "Data acquisition\nCommercially available sytems\nSociety for functional Near Infreared spectroscopy (https://fnirs.org)\n\nNIRx (Germany): NIRSport2\nArtinis (The Netherlands): Brite, OxyMon\nHitachi (Japan): ETG 4000\nGowerLabs (UK): LUMO (HD-DOT system)\nCortivision (Poland): Spectrum C23 fNIRS\nPIONIRS (Italy): NIRSBOX"
+  },
+  {
+    "objectID": "index.html#desiging-fnirs-experiments-2",
+    "href": "index.html#desiging-fnirs-experiments-2",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Desiging fNIRS experiments",
+    "text": "Desiging fNIRS experiments\nVideo"
+  },
+  {
+    "objectID": "index.html#desiging-fnirs-experiments-3",
+    "href": "index.html#desiging-fnirs-experiments-3",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Desiging fNIRS experiments",
+    "text": "Desiging fNIRS experiments\nOptode montage\n\nDefine regions of interest (ROI)\nIdentify optimal positioning of sources and detectors\n\nNIRSite (NIRx)\nFOLD (Zimeo Morais, Balardin, and Sato 2018), devFOLD (Fu and Richards 2021)"
+  },
+  {
+    "objectID": "index.html#desiging-fnirs-experiments-4",
+    "href": "index.html#desiging-fnirs-experiments-4",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Desiging fNIRS experiments",
+    "text": "Desiging fNIRS experiments\nOptode montage\n\nNIRSite layout from Abboub, Nazzi, and Gervain (2016)"
+  },
+  {
+    "objectID": "index.html#desiging-fnirs-experiments-5",
+    "href": "index.html#desiging-fnirs-experiments-5",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Desiging fNIRS experiments",
+    "text": "Desiging fNIRS experiments\nDesigning an optode montage\n\nNIRSite layout from Abboub, Nazzi, and Gervain (2016)"
+  },
+  {
+    "objectID": "index.html#data-acquisition-1",
+    "href": "index.html#data-acquisition-1",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Data acquisition",
+    "text": "Data acquisition\nRecording software\n\nDemonstration with NIRSport2 and Aurora Recording Software (NIRx)."
   },
   {
     "objectID": "index.html#data-preprocessing-and-analysis",
     "href": "index.html#data-preprocessing-and-analysis",
     "title": "fNIRS in the Neurodevelopment of Cognition",
     "section": "Data preprocessing and analysis",
-    "text": "Data preprocessing and analysis"
+    "text": "Data preprocessing and analysis\nSofware\n\nHomer2, Homer3 (Huppert et al. 2009)\nMNE-Python (Gramfort et al. 2013), MNE-NIRS (Luke et al. 2021)\nAnalyzIR (Santosa et al. 2018)\nBrainstorm (Tadel et al. 2011), NIRStorm (Delaire et al. 2025)"
+  },
+  {
+    "objectID": "index.html#data-preprocessing",
+    "href": "index.html#data-preprocessing",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Data preprocessing",
+    "text": "Data preprocessing\nSteps\n\nImport raw light intensity data (e.g., .snirf)\nTransform for optical density data\nSignal quality checks and enhancement: 3.1) Scalp coupling index 3.2) Short channel regression 3.3) Motion arctifact correction (e.g., temporal derivative distribution repair)\nTransform to \\(\\Delta\\text{HbO}\\) and \\(\\Delta\\text{HbR}\\)\nAttenuate physiological arctifacts (e.g., band-pass filtering)\nEpoching and averaging"
+  },
+  {
+    "objectID": "index.html#data-preprocessing-and-analysis-1",
+    "href": "index.html#data-preprocessing-and-analysis-1",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Data preprocessing and analysis",
+    "text": "Data preprocessing and analysis\nSteps\n\nMany choices to be made: Which steps? In what order?\nAlways consider your research question, your population of interest, and your device!\nMany different pipelines generate equivalent results (Yücel et al. 2024)\nToday, we are following recommendations by Gemignani and Gervain (2021)"
+  },
+  {
+    "objectID": "index.html#adult-data",
+    "href": "index.html#adult-data",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Adult data",
+    "text": "Adult data\nRaw data\n\n\nFigure 2: Raw light intensity."
+  },
+  {
+    "objectID": "index.html#adult-data-1",
+    "href": "index.html#adult-data-1",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Adult data",
+    "text": "Adult data\nRaw data\n\n\nFigure 3: Raw light intensity in selected channels."
+  },
+  {
+    "objectID": "index.html#adult-data-2",
+    "href": "index.html#adult-data-2",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Adult data",
+    "text": "Adult data\nOptical density\n\n\nFigure 4: Optical density."
+  },
+  {
+    "objectID": "index.html#adult-data-3",
+    "href": "index.html#adult-data-3",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Adult data",
+    "text": "Adult data\nOptical density\n\n\nFigure 5: Optical density power spectral density."
+  },
+  {
+    "objectID": "index.html#adult-data-4",
+    "href": "index.html#adult-data-4",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Adult data",
+    "text": "Adult data\nOptical density\n\n\nFigure 6: Scalp coupling index."
+  },
+  {
+    "objectID": "index.html#adult-data-5",
+    "href": "index.html#adult-data-5",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Adult data",
+    "text": "Adult data\nOptical density\n\n\nFigure 7: Optical density power spectral density after excluding channels with low SCI."
+  },
+  {
+    "objectID": "index.html#adult-data-6",
+    "href": "index.html#adult-data-6",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Adult data",
+    "text": "Adult data\nOptical density\n\n\nFigure 8: Optical density after short channel regression."
+  },
+  {
+    "objectID": "index.html#adult-data-7",
+    "href": "index.html#adult-data-7",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Adult data",
+    "text": "Adult data\nOptical density\n\n\nFigure 9: Optical density power spectral density after short channel regression."
+  },
+  {
+    "objectID": "index.html#adult-data-8",
+    "href": "index.html#adult-data-8",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Adult data",
+    "text": "Adult data\nOptical density\n\n\nFigure 10: Optical density after TDDR."
+  },
+  {
+    "objectID": "index.html#adult-data-9",
+    "href": "index.html#adult-data-9",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Adult data",
+    "text": "Adult data\nOptical density\n\n\nFigure 11: Optical density power spectral density after TDDR."
+  },
+  {
+    "objectID": "index.html#adult-data-10",
+    "href": "index.html#adult-data-10",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Adult data",
+    "text": "Adult data\nHaemodynamic response (HbO, HbR)\n\n\nFigure 12: Haemodynamic response."
+  },
+  {
+    "objectID": "index.html#adult-data-11",
+    "href": "index.html#adult-data-11",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Adult data",
+    "text": "Adult data\nHaemodynamic response (HbO, HbR)\n\n\nFigure 13: Haemodynamic response in selected channels."
+  },
+  {
+    "objectID": "index.html#adult-data-12",
+    "href": "index.html#adult-data-12",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Adult data",
+    "text": "Adult data\nHaemodynamic response (HbO, HbR)\n\n\nFigure 14: Haemodynamic response power spectral density."
+  },
+  {
+    "objectID": "index.html#adult-data-13",
+    "href": "index.html#adult-data-13",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Adult data",
+    "text": "Adult data\nHaemodynamic response (HbO, HbR)\n\n\nFigure 15: Haemodynamic response band-passs filter."
+  },
+  {
+    "objectID": "index.html#adult-data-14",
+    "href": "index.html#adult-data-14",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Adult data",
+    "text": "Adult data\nHaemodynamic response (HbO, HbR)\n\n\nFigure 16: Haemodynamic response in selected channels after band-pass filter."
+  },
+  {
+    "objectID": "index.html#newborn-data",
+    "href": "index.html#newborn-data",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nRaw data\n\n\nFigure 17: Raw light intensity."
+  },
+  {
+    "objectID": "index.html#newborn-data-1",
+    "href": "index.html#newborn-data-1",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nRaw data\n\n\nFigure 18: Raw light intensity in selected channels."
+  },
+  {
+    "objectID": "index.html#newborn-data-2",
+    "href": "index.html#newborn-data-2",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nOptical density\n\n\nFigure 19: Optical density in selected channels."
+  },
+  {
+    "objectID": "index.html#newborn-data-3",
+    "href": "index.html#newborn-data-3",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nOptical density\n\n\nFigure 20: Optical density power spectral density."
+  },
+  {
+    "objectID": "index.html#newborn-data-4",
+    "href": "index.html#newborn-data-4",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nOptical density\n\n\nFigure 21: Scalp coupling index."
+  },
+  {
+    "objectID": "index.html#newborn-data-5",
+    "href": "index.html#newborn-data-5",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nOptical density\n\n\nFigure 22: Optical density power spectral density after removing channels with low SCI."
+  },
+  {
+    "objectID": "index.html#newborn-data-6",
+    "href": "index.html#newborn-data-6",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nOptical density\n\nShort channel regression in infants?"
+  },
+  {
+    "objectID": "index.html#newborn-data-7",
+    "href": "index.html#newborn-data-7",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nOptical density\n\n\nFigure 23: Optical density after TDDR."
+  },
+  {
+    "objectID": "index.html#newborn-data-8",
+    "href": "index.html#newborn-data-8",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nOptical density\n\n\nFigure 24: Optical density power spectral density after TDDR."
+  },
+  {
+    "objectID": "index.html#newborn-data-9",
+    "href": "index.html#newborn-data-9",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nHaemodynamic response (HbO, HbR)\n\n\nFigure 25: Haemodynamic response."
+  },
+  {
+    "objectID": "index.html#newborn-data-10",
+    "href": "index.html#newborn-data-10",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nHaemodynamic response (HbO, HbR)\n\n\nFigure 26: Haemodynamic response in selected channels."
+  },
+  {
+    "objectID": "index.html#newborn-data-11",
+    "href": "index.html#newborn-data-11",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nHaemodynamic response (HbO, HbR)\n\n\nFigure 27: Haemodynamic response power spectral density."
+  },
+  {
+    "objectID": "index.html#newborn-data-12",
+    "href": "index.html#newborn-data-12",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nHaemodynamic response (HbO, HbR)\n\n\nFigure 28: Haemodynamic response after band-pass filter."
+  },
+  {
+    "objectID": "index.html#newborn-data-13",
+    "href": "index.html#newborn-data-13",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nHaemodynamic response (HbO, HbR)\n\n\nFigure 29: Haemodynamic response after band-pass filter in selected channels."
+  },
+  {
+    "objectID": "index.html#newborn-data-14",
+    "href": "index.html#newborn-data-14",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nEpoching\n\n\n\n\nTable 1: Triggers/annotations in registered dataset.\n\n\n\n\n\n\n\n\n\n\nonset\nduration\ndescription\n\n\n\n\n0\n2025-05-19 16:27:37.749337\n1.0\n1.0\n\n\n1\n2025-05-19 16:27:37.798489\n1.0\n11.0\n\n\n2\n2025-05-19 16:28:04.340569\n1.0\n3.0\n\n\n3\n2025-05-19 16:28:44.350297\n1.0\n9.0\n\n\n4\n2025-05-19 16:29:10.843225\n1.0\n2.0\n\n\n...\n...\n...\n...\n\n\n63\n2025-05-19 16:56:19.593049\n1.0\n3.0\n\n\n64\n2025-05-19 16:56:59.602777\n1.0\n13.0\n\n\n65\n2025-05-19 16:57:26.095705\n1.0\n3.0\n\n\n66\n2025-05-19 16:57:36.712537\n1.0\n31.0\n\n\n67\n2025-05-19 16:57:36.712537\n1.0\n12.0\n\n\n\n\n68 rows × 3 columns"
+  },
+  {
+    "objectID": "index.html#newborn-data-15",
+    "href": "index.html#newborn-data-15",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nEpoching\n\n\nFigure 30: Epoched haemodynamic response function."
+  },
+  {
+    "objectID": "index.html#newborn-data-16",
+    "href": "index.html#newborn-data-16",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nEpoching\n\n\nFigure 31: Epoched haemodynamic response function across channels."
+  },
+  {
+    "objectID": "index.html#newborn-data-17",
+    "href": "index.html#newborn-data-17",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nBlock averages\n\n\nFigure 32: Averaged HbO response across conditions."
+  },
+  {
+    "objectID": "index.html#newborn-data-18",
+    "href": "index.html#newborn-data-18",
+    "title": "fNIRS in the Neurodevelopment of Cognition",
+    "section": "Newborn data",
+    "text": "Newborn data\nBlock averages\n\n\nFigure 33: Averaged HbR response across conditions."
   },
   {
     "objectID": "index.html#references",
     "href": "index.html#references",
     "title": "fNIRS in the Neurodevelopment of Cognition",
     "section": "References",
-    "text": "References"
+    "text": "References\n\n\n\n\nAbboub, Nawal, Thierry Nazzi, and Judit Gervain. 2016. “Prosodic Grouping at Birth.” Brain and Language 162: 46–59.\n\n\nArco, Juan E, Carlos González-Garcı́a, Paloma Dı́az-Gutiérrez, Javier Ramı́rez, and Marı́a Ruz. 2018. “Influence of Activation Pattern Estimates and Statistical Significance Tests in fMRI Decoding Analysis.” Journal of Neuroscience Methods 308: 248–60.\n\n\nDelaire, Édouard, Thomas Vincent, Zhengchen Cai, Alexis Machado, Laurent Hugueville, Denis Schwartz, Francois Tadel, et al. 2025. “NIRSTORM: A Brainstorm Extension Dedicated to Functional Near-Infrared Spectroscopy Data Analysis, Advanced 3D Reconstructions, and Optimal Probe Design.” Neurophotonics 12 (2): 025011–11.\n\n\nFu, Xiaoxue, and John E Richards. 2021. “devfOLD: A Toolbox for Designing Age-Specific fNIRS Channel Placement.” Neurophotonics 8 (4): 045003–3.\n\n\nGemignani, Jessica, and Judit Gervain. 2021. “Comparing Different Pre-Processing Routines for Infant fNIRS Data.” Developmental Cognitive Neuroscience 48: 100943.\n\n\nGramfort, Alexandre, Martin Luessi, Eric Larson, Denis A Engemann, Daniel Strohmeier, Christian Brodbeck, Roman Goj, et al. 2013. “MEG and EEG Data Analysis with MNE-Python.” Frontiers in Neuroinformatics 7: 267.\n\n\nHuppert, Theodore J, Solomon G Diamond, Maria A Franceschini, and David A Boas. 2009. “HomER: a review of time-series analysis methods for near-infrared spectroscopy of the brain .” Appl Opt 48 (10): D280–98. https://doi.org/10.1364/ao.48.00d280.\n\n\nLuke, Robert, Eric Larson, Maureen J Shader, Hamish Innes-Brown, Lindsey Van Yper, Adrian KC Lee, Paul F Sowman, and David McAlpine. 2021. “Analysis Methods for Measuring Passive Auditory fNIRS Responses Generated by a Block-Design Paradigm.” Neurophotonics 8 (2): 025008–8.\n\n\nSantosa, Hendrik, Xuetong Zhai, Frank Fishburn, and Theodore Huppert. 2018. “The NIRS Brain AnalyzIR Toolbox.” Algorithms 11 (5): 73.\n\n\nStute, Katharina, Louisa K Gossé, Samuel Montero-Hernandez, Guy A Perkins, Meryem A Yücel, Simone Cutini, Turgut Durduran, et al. 2025. “The fNIRS Glossary Project: A Consensus-Based Resource for Functional Near-Infrared Spectroscopy Terminology.” Neurophotonics 12 (2): 027801–1.\n\n\nTadel, François, Sylvain Baillet, John C Mosher, Dimitrios Pantazis, and Richard M Leahy. 2011. “Brainstorm: A User-Friendly Application for MEG/EEG Analysis.” Computational Intelligence and Neuroscience 2011 (1): 879716.\n\n\nYücel, Meryem Ayşe, Robert Luke, Rickson Coelho Mesquita, Alexander von Lühmann, David Marc Anton Mehler, Michael Lührs, Jessica Gemignani, et al. 2024. “The fNIRS Reproducibility Study Hub (FRESH): Exploring Variability and Enhancing Transparency in fNIRS Neuroimaging Research.”\n\n\nZimeo Morais, Guilherme Augusto, Joana Bisol Balardin, and João Ricardo Sato. 2018. “fNIRS Optodes’ Location Decider (fOLD): A Toolbox for Probe Arrangement Guided by Brain Regions-of-Interest.” Scientific Reports 8 (1): 3341."
   }
 ]
