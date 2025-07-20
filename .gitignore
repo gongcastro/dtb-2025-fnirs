@@ -1,3 +1,11 @@
+.png
+.svg
+.jpg
+.jpeg
+.quarto
+data/
+.jupyter_cache
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

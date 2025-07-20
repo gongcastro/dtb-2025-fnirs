@@ -43,6 +43,12 @@ $h3-font-size: 35px;
 
 /*-- scss:rules --*/
 
+body {
+  background-image: url("img/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 #title-slide {
 
   .title,
@@ -160,9 +166,13 @@ $h3-font-size: 35px;
   text-align: right;
 
   a {
-    color: grey;
+    color: rgb(0, 88, 189);
     text-align: right;
   }
+}
+
+.reveal a {
+  color: rgb(0, 88, 189) !important;
 }
 
 .aside {
@@ -189,15 +199,6 @@ strong {
   blockquote {
     border-left: 3px solid $text-muted;
     padding-left: 0.5em;
-  }
-
-  a {
-    color: grey
-  }
-
-  b,
-  strong {
-    font-weight: 900;
   }
 
   caption {

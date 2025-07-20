@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/tabby.min.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -28,8 +28,28 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-f7f611ed487764d9709fd4bdd12dea00.css">
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-e97dbe6debb2f67bac54086e980acf61.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -122,6 +142,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -129,7 +152,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">fNIRS in the Neurodevelopment of Cognition</h1>
-    <p class="subtitle">Recording and Analysis</p>
+    <p class="subtitle">Registration and Analysis</p>
     <br>
 
   <br>
@@ -149,6 +172,10 @@
       <p>Deep Tech Brain Summer School 2024-2025 | 2025-07-21</p>
     </div>
         <div class="media-icon" right="0">
+            <a href="https://bsky.app/profile/.bsky.social">
+        <img src="logo-bluesky.svg">
+        <p>gongcastro</p>
+      </a>
             <br>
             <a href="https://github.com/gongcastro">
         <img src="logo-github.png">
@@ -180,64 +207,510 @@
 <h1>What is fNIRS?</h1>
 <p>Functional Near-Infrared Spectroscopy</p>
 </section>
-<section id="the-rationale-behind-fnirs" class="slide level2">
+<section id="the-fnirs-glossary-project" class="slide level2">
+<h2>The fNIRs Glossary project</h2>
+<p>Community-sourced glossary <span class="citation" data-cites="stute2025fnirs">(<a href="#/references" role="doc-biblioref" onclick="">Stute et al. 2025</a>)</span></p>
+<p><a href="https://openfnirs.org/standards/fnirs-glossary-project/">https://openfnirs.org/standards/fnirs-glossary-project/</a> <img data-src="img/glossary.png"></p>
+</section>
+<section id="the-rationale-behind-fnirs" class="slide level2 scrollable">
 <h2>The rationale behind fNIRS</h2>
+<div class="box">
+<ol type="1">
+<li>Some materials have <strong>different optical properties</strong> than others (e.g., they absorbe more light of some colors)</li>
+</ol>
+</div>
+
+<img data-src="img/magnetic-spectrum.png" class="r-stretch quarto-figure-center"><p class="caption">https://commons.wikimedia.org/wiki/File:EM_spectrumrevised.png</p></section>
+<section id="the-rationale-behind-fnirs-1" class="slide level2 scrollable">
+<h2>The rationale behind fNIRS</h2>
+<div class="box">
+<ol start="2" type="1">
+<li>We can study the <strong>composition of an object</strong> by analysing how light behaves when passing through it (i.g., <strong>spectroscopy</strong>)</li>
+</ol>
+</div>
+
+<img data-src="img/spectroscopy.png" class="r-stretch"></section>
+<section id="the-rationale-behind-fnirs-2" class="slide level2 scrollable">
+<h2>The rationale behind fNIRS</h2>
+<div class="box">
+<ol start="3" type="1">
+<li><strong>Oxy-haemoglobin</strong> (HbO) and <strong>deoxy-haemoglobin</strong> (HbR) have absorb <strong>near-infrared light</strong> differently</li>
+</ol>
+</div>
+
+<img data-src="index_files/figure-revealjs/fig-absorption-output-1.png" class="r-stretch quarto-figure-center" id="fig-absorption"><p class="caption">
+Figure&nbsp;1: Optical absorption of haemoglobin.
+</p></section>
+<section id="the-rationale-behind-fnirs-3" class="slide level2 scrollable">
+<h2>The rationale behind fNIRS</h2>
+<div class="box">
+<ol start="4" type="1">
+<li>If we shine near-infrared light into biological tissue, we can estimate changes in relative concentration of HbO and HbR time (<strong>functional</strong>)</li>
+</ol>
+</div>
+<p>Modified Beer-Lambert law:</p>
+<p><span id="eq-hbo"><span class="math display">\[
+\Delta A(\lambda_1) = \text{DPF} \cdot r \cdot [\epsilon_{\text{HbO}} (\lambda_1) \cdot \Delta c_{\text{HbO}} + \epsilon_{\text{HbR}}(\lambda_1) \cdot \Delta c_{\text{HbR}}]
+\qquad(1)\]</span></span></p>
+<p><span id="eq-hbr"><span class="math display">\[
+\Delta A(\lambda_2) = \text{DPF} \cdot r \cdot [\epsilon_{\text{HbO}} (\lambda_2) \cdot \Delta c_{\text{HbO}} + \epsilon_{\text{HbR}}(\lambda_2) \cdot \Delta c_{\text{HbR}}]
+\qquad(2)\]</span></span></p>
 <ul>
-<li>Some materials, have different optical properties than others (e.g., they absorbe light of different colors)</li>
-</ul>
-<p>[ADD LIGHT WAVELENGHTS]</p>
-<ul>
-<li>We can study the composition of an object by analysing how light behaves when passing through it (i.g., <strong>spectroscopy</strong>)</li>
-</ul>
-<p>[ADD DIAGRAM ABOUT ABSORTION AND SCATTERING]</p>
-<ul>
-<li><p>Oxy-haemoglobin (HbO) and deoxy-haemoglobin (HbR) have absorb <strong>near-infrared light</strong> differently</p></li>
-<li><p>If we shine near-infrared light into biological tissue, we can estimate changes in relative concentration of HbO and HbR time (<strong>functional</strong>)</p></li>
-</ul>
-<p>[ADD MLLB EQUATION]</p>
-<ul>
-<li>In brain tissue, neuronal activity is followed by BOLD response. Using fNIRS, we can measure BOLD signal as a proxy of brain activity in an area.</li>
+<li><span class="math inline">\(\text{DPF}\)</span>: differential pathlength factor</li>
+<li><span class="math inline">\(\epsilon_{\text{HbO, HbR}}\)</span>: molar decadic absorption coefficient</li>
+<li><span class="math inline">\(\Delta c_{\text{HbO, HbR}}\)</span>: concentration change in HbO or HbR.</li>
 </ul>
 </section>
-<section id="desiging-an-fnirs-experiments" class="slide level2 scrollable">
-<h2>Desiging an fNIRS experiments</h2>
+<section id="the-rationale-behind-fnirs-4" class="slide level2 scrollable">
+<h2>The rationale behind fNIRS</h2>
+<div class="box">
+<ol start="5" type="1">
+<li>In brain tissue, neuronal activity is followed by <strong>BOLD response</strong>. Using fNIRS, we can measure BOLD signal as a proxy of brain activity in an area.</li>
+</ol>
+</div>
+
+<img data-src="img/bold-hrf.png" class="r-stretch quarto-figure-center"><p class="caption">Cinciute (2019), <em>PeerJ</em>. https://doi.org/10.7717/peerj.6621</p></section>
+<section id="desiging-fnirs-experiments" class="slide level2">
+<h2>Desiging fNIRS experiments</h2>
 <ul>
-<li>Low temporal resolution: the BOLD response takes time! (~15 seconds)</li>
-<li>Two main types of experimental designs:
-<ol type="a">
-<li>Block design</li>
-</ol></li>
+<li><strong>Low temporal resolution</strong>: the BOLD response takes time! (~15 seconds)</li>
+<li>Two main types of experimental designs</li>
 </ul>
-</section>
-<section id="desiging-an-fnirs-experiments-1" class="slide level2 scrollable">
-<h2>Desiging an fNIRS experiments</h2>
+
+<img data-src="img/design.jpg" class="r-stretch quarto-figure-center"><p class="caption"><span class="citation" data-cites="arco2018influence">Arco et al. (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span></p></section>
+<section id="desiging-fnirs-experiments-1" class="slide level2">
+<h2>Desiging fNIRS experiments</h2>
+<h3 id="working-with-the-youngest">Working with the youngest</h3>
 <ul>
-<li>Low temporal resolution: the BOLD response takes time! (~15 seconds)</li>
-<li>Two main types of experimental designs:
-<ol type="a">
-<li>Block designs</li>
-<li>Event-related designs</li>
-</ol></li>
+<li>No instructions</li>
+<li>Plenty of movement</li>
+<li>Short attention and memory span</li>
 </ul>
-</section>
-<section id="working-with-the-youngest" class="slide level2">
-<h2>Working with the youngest</h2>
-</section>
-<section id="hardware" class="slide level2">
-<h2>Hardware</h2>
-<p><video data-src="img/setup.mp4" controls=""><a href="img/setup.mp4">Video</a></video></p>
-</section>
-<section id="software" class="slide level2">
-<h2>Software</h2>
 </section>
 <section id="data-acquisition" class="slide level2">
 <h2>Data acquisition</h2>
+<h3 id="commercially-available-sytems">Commercially available sytems</h3>
+<p>Society for functional Near Infreared spectroscopy (<a href="https://fnirs.org">https://fnirs.org</a>)</p>
+<ul>
+<li><a href="https://nirx.net">NIRx</a> (Germany): NIRSport2</li>
+<li><a href="https://www.artinis.com">Artinis</a> (The Netherlands): Brite, OxyMon</li>
+<li><a href="https://healthcaresolutions-us.fujifilm.com/">Hitachi</a> (Japan): ETG 4000</li>
+<li><a href="https://www.gowerlabs.co.uk/">GowerLabs</a> (UK): LUMO (HD-DOT system)</li>
+<li><a href="https://www.cortivision.com/">Cortivision</a> (Poland): Spectrum C23 fNIRS</li>
+<li><a href="https://www.pionirs.com/wp/">PIONIRS</a> (Italy): NIRSBOX</li>
+</ul>
+</section>
+<section id="desiging-fnirs-experiments-2" class="slide level2">
+<h2>Desiging fNIRS experiments</h2>
+<p><video data-src="img/setup.mp4" controls=""><a href="img/setup.mp4">Video</a></video></p>
+</section>
+<section id="desiging-fnirs-experiments-3" class="slide level2 scrollable">
+<h2>Desiging fNIRS experiments</h2>
+<h3 id="optode-montage">Optode montage</h3>
+<ol type="1">
+<li>Define regions of interest (ROI)</li>
+<li>Identify optimal positioning of sources and detectors
+<ul>
+<li>NIRSite (NIRx)</li>
+<li>FOLD <span class="citation" data-cites="zimeo2018fnirs">(<a href="#/references" role="doc-biblioref" onclick="">Zimeo Morais, Balardin, and Sato 2018</a>)</span>, devFOLD <span class="citation" data-cites="fu2021devfold">(<a href="#/references" role="doc-biblioref" onclick="">Fu and Richards 2021</a>)</span></li>
+</ul></li>
+</ol>
+</section>
+<section id="desiging-fnirs-experiments-4" class="slide level2">
+<h2>Desiging fNIRS experiments</h2>
+<h3 id="optode-montage-1">Optode montage</h3>
+
+<img data-src="img/montage-3d.png" class="r-stretch quarto-figure-center"><p class="caption">NIRSite layout from <span class="citation" data-cites="abboub2016prosodic">Abboub, Nazzi, and Gervain (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span></p></section>
+<section id="desiging-fnirs-experiments-5" class="slide level2">
+<h2>Desiging fNIRS experiments</h2>
+<h3 id="designing-an-optode-montage">Designing an optode montage</h3>
+
+<img data-src="img/montage-2d.png" class="r-stretch quarto-figure-center"><p class="caption">NIRSite layout from <span class="citation" data-cites="abboub2016prosodic">Abboub, Nazzi, and Gervain (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span></p></section>
+<section id="data-acquisition-1" class="slide level2">
+<h2>Data acquisition</h2>
+<h3 id="recording-software">Recording software</h3>
+<div class="box">
+<p>Demonstration with <strong>NIRSport2</strong> and <strong>Aurora</strong> Recording Software (NIRx).</p>
+</div>
 </section>
 <section id="data-preprocessing-and-analysis" class="slide level2">
 <h2>Data preprocessing and analysis</h2>
-</section></section>
-<section id="questions-and-answers" class="title-slide slide level1 center">
-<h1>Questions and answers</h1>
+<h3 id="sofware">Sofware</h3>
+<ul>
+<li>Homer2, <a href="https://openfnirs.org/software/homer/">Homer3</a> <span class="citation" data-cites="huppert2009homer">(<a href="#/references" role="doc-biblioref" onclick="">Huppert et al. 2009</a>)</span></li>
+<li><a href="https://mne.tools/stable/index.html">MNE-Python</a> <span class="citation" data-cites="gramfort2013meg">(<a href="#/references" role="doc-biblioref" onclick="">Gramfort et al. 2013</a>)</span>, <a href="https://mne.tools/mne-nirs/stable/index.html">MNE-NIRS</a> <span class="citation" data-cites="luke2021analysis">(<a href="#/references" role="doc-biblioref" onclick="">Luke et al. 2021</a>)</span></li>
+<li><a href="https://github.com/huppertt/nirs-toolbox">AnalyzIR</a> <span class="citation" data-cites="santosa2018nirs">(<a href="#/references" role="doc-biblioref" onclick="">Santosa et al. 2018</a>)</span></li>
+<li><a href="https://neuroimage.usc.edu/brainstorm">Brainstorm</a> <span class="citation" data-cites="tadel2011brainstorm">(<a href="#/references" role="doc-biblioref" onclick="">Tadel et al. 2011</a>)</span>, <a href="https://github.com/Nirstorm/nirstorm">NIRStorm</a> <span class="citation" data-cites="delaire2025nirstorm">(<a href="#/references" role="doc-biblioref" onclick="">Delaire et al. 2025</a>)</span></li>
+</ul>
+</section>
+<section id="data-preprocessing" class="slide level2 scrollable">
+<h2>Data preprocessing</h2>
+<h3 id="steps">Steps</h3>
+<ol type="1">
+<li>Import raw <strong>light intensity</strong> data (e.g., <code>.snirf</code>)</li>
+<li>Transform for <strong>optical density</strong> data</li>
+<li><strong>Signal quality</strong> checks and enhancement: 3.1) Scalp coupling index 3.2) Short channel regression 3.3) Motion arctifact correction (e.g., temporal derivative distribution repair)</li>
+<li>Transform to <strong><span class="math inline">\(\Delta\text{HbO}\)</span> and <span class="math inline">\(\Delta\text{HbR}\)</span></strong></li>
+<li>Attenuate <strong>physiological arctifacts</strong> (e.g., band-pass filtering)</li>
+<li><strong>Epoching</strong> and averaging</li>
+</ol>
+</section>
+<section id="data-preprocessing-and-analysis-1" class="slide level2">
+<h2>Data preprocessing and analysis</h2>
+<h3 id="steps-1">Steps</h3>
+<ul>
+<li>Many choices to be made: Which steps? In what order?</li>
+<li>Always consider your research question, your population of interest, and your device!</li>
+<li>Many different pipelines generate equivalent results <span class="citation" data-cites="yucel2024fnirs">(<a href="#/references" role="doc-biblioref" onclick="">Yücel et al. 2024</a>)</span></li>
+<li>Today, we are following recommendations by <span class="citation" data-cites="gemignani2021comparing">Gemignani and Gervain (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span></li>
+</ul>
+</section>
+<section id="adult-data" class="slide level2">
+<h2>Adult data</h2>
+<h3 id="raw-data">Raw data</h3>
+
+<img data-src="index_files/figure-revealjs/fig-raw-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-raw-adult"><p class="caption">
+Figure&nbsp;2: Raw light intensity.
+</p></section>
+<section id="adult-data-1" class="slide level2">
+<h2>Adult data</h2>
+<h3 id="raw-data-1">Raw data</h3>
+
+<img data-src="index_files/figure-revealjs/fig-raw-adult-channels-output-1.png" class="r-stretch quarto-figure-center" id="fig-raw-adult-channels"><p class="caption">
+Figure&nbsp;3: Raw light intensity in selected channels.
+</p></section>
+<section id="adult-data-2" class="slide level2">
+<h2>Adult data</h2>
+<h3 id="optical-density">Optical density</h3>
+
+<img data-src="index_files/figure-revealjs/fig-od-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-adult"><p class="caption">
+Figure&nbsp;4: Optical density.
+</p></section>
+<section id="adult-data-3" class="slide level2">
+<h2>Adult data</h2>
+<h3 id="optical-density-1">Optical density</h3>
+
+<img data-src="index_files/figure-revealjs/fig-od-psd-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-psd-adult"><p class="caption">
+Figure&nbsp;5: Optical density power spectral density.
+</p></section>
+<section id="adult-data-4" class="slide level2">
+<h2>Adult data</h2>
+<h3 id="optical-density-2">Optical density</h3>
+
+<img data-src="index_files/figure-revealjs/fig-sci-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-sci-adult"><p class="caption">
+Figure&nbsp;6: Scalp coupling index.
+</p></section>
+<section id="adult-data-5" class="slide level2">
+<h2>Adult data</h2>
+<h3 id="optical-density-3">Optical density</h3>
+
+<img data-src="index_files/figure-revealjs/fig-od-sci-psd-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-sci-psd-adult"><p class="caption">
+Figure&nbsp;7: Optical density power spectral density after excluding channels with low SCI.
+</p></section>
+<section id="adult-data-6" class="slide level2">
+<h2>Adult data</h2>
+<h3 id="optical-density-4">Optical density</h3>
+
+<img data-src="index_files/figure-revealjs/fig-od-short-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-short-adult"><p class="caption">
+Figure&nbsp;8: Optical density after short channel regression.
+</p></section>
+<section id="adult-data-7" class="slide level2">
+<h2>Adult data</h2>
+<h3 id="optical-density-5">Optical density</h3>
+
+<img data-src="index_files/figure-revealjs/fig-od-short-psd-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-short-psd-adult"><p class="caption">
+Figure&nbsp;9: Optical density power spectral density after short channel regression.
+</p></section>
+<section id="adult-data-8" class="slide level2">
+<h2>Adult data</h2>
+<h3 id="optical-density-6">Optical density</h3>
+
+<img data-src="index_files/figure-revealjs/fig-od-tddr-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-tddr-adult"><p class="caption">
+Figure&nbsp;10: Optical density after TDDR.
+</p></section>
+<section id="adult-data-9" class="slide level2">
+<h2>Adult data</h2>
+<h3 id="optical-density-7">Optical density</h3>
+
+<img data-src="index_files/figure-revealjs/fig-od-tddr-psd-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-tddr-psd-adult"><p class="caption">
+Figure&nbsp;11: Optical density power spectral density after TDDR.
+</p></section>
+<section id="adult-data-10" class="slide level2">
+<h2>Adult data</h2>
+<h3 id="haemodynamic-response-hbo-hbr">Haemodynamic response (HbO, HbR)</h3>
+
+<img data-src="index_files/figure-revealjs/fig-haemo-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-adult"><p class="caption">
+Figure&nbsp;12: Haemodynamic response.
+</p></section>
+<section id="adult-data-11" class="slide level2">
+<h2>Adult data</h2>
+<h3 id="haemodynamic-response-hbo-hbr-1">Haemodynamic response (HbO, HbR)</h3>
+
+<img data-src="index_files/figure-revealjs/fig-haemo-adult-channels-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-adult-channels"><p class="caption">
+Figure&nbsp;13: Haemodynamic response in selected channels.
+</p></section>
+<section id="adult-data-12" class="slide level2">
+<h2>Adult data</h2>
+<h3 id="haemodynamic-response-hbo-hbr-2">Haemodynamic response (HbO, HbR)</h3>
+
+<img data-src="index_files/figure-revealjs/fig-haemo-psd-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-psd-adult"><p class="caption">
+Figure&nbsp;14: Haemodynamic response power spectral density.
+</p></section>
+<section id="adult-data-13" class="slide level2">
+<h2>Adult data</h2>
+<h3 id="haemodynamic-response-hbo-hbr-3">Haemodynamic response (HbO, HbR)</h3>
+
+<img data-src="index_files/figure-revealjs/fig-haemo-filter-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-filter-adult"><p class="caption">
+Figure&nbsp;15: Haemodynamic response band-passs filter.
+</p></section>
+<section id="adult-data-14" class="slide level2">
+<h2>Adult data</h2>
+<h3 id="haemodynamic-response-hbo-hbr-4">Haemodynamic response (HbO, HbR)</h3>
+
+<img data-src="index_files/figure-revealjs/fig-haemo-filter-adult-channels-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-filter-adult-channels"><p class="caption">
+Figure&nbsp;16: Haemodynamic response in selected channels after band-pass filter.
+</p></section>
+<section id="newborn-data" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="raw-data-2">Raw data</h3>
+
+<img data-src="index_files/figure-revealjs/fig-raw-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-raw-newborn"><p class="caption">
+Figure&nbsp;17: Raw light intensity.
+</p></section>
+<section id="newborn-data-1" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="raw-data-3">Raw data</h3>
+
+<img data-src="index_files/figure-revealjs/fig-raw-newborn-channels-output-1.png" class="r-stretch quarto-figure-center" id="fig-raw-newborn-channels"><p class="caption">
+Figure&nbsp;18: Raw light intensity in selected channels.
+</p></section>
+<section id="newborn-data-2" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="optical-density-8">Optical density</h3>
+
+<img data-src="index_files/figure-revealjs/fig-od-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-newborn"><p class="caption">
+Figure&nbsp;19: Optical density in selected channels.
+</p></section>
+<section id="newborn-data-3" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="optical-density-9">Optical density</h3>
+
+<img data-src="index_files/figure-revealjs/fig-od-psd-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-psd-newborn"><p class="caption">
+Figure&nbsp;20: Optical density power spectral density.
+</p></section>
+<section id="newborn-data-4" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="optical-density-10">Optical density</h3>
+
+<img data-src="index_files/figure-revealjs/fig-od-sci-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-sci-newborn"><p class="caption">
+Figure&nbsp;21: Scalp coupling index.
+</p></section>
+<section id="newborn-data-5" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="optical-density-11">Optical density</h3>
+
+<img data-src="index_files/figure-revealjs/fig-od-psd-sci-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-psd-sci-newborn"><p class="caption">
+Figure&nbsp;22: Optical density power spectral density after removing channels with low SCI.
+</p></section>
+<section id="newborn-data-6" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="optical-density-12">Optical density</h3>
+<div class="box">
+<p>Short channel regression in infants?</p>
+</div>
+</section>
+<section id="newborn-data-7" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="optical-density-13">Optical density</h3>
+
+<img data-src="index_files/figure-revealjs/fig-od-tddr-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-tddr-newborn"><p class="caption">
+Figure&nbsp;23: Optical density after TDDR.
+</p></section>
+<section id="newborn-data-8" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="optical-density-14">Optical density</h3>
+
+<img data-src="index_files/figure-revealjs/fig-od-tddr-psd-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-tddr-psd-newborn"><p class="caption">
+Figure&nbsp;24: Optical density power spectral density after TDDR.
+</p></section>
+<section id="newborn-data-9" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="haemodynamic-response-hbo-hbr-5">Haemodynamic response (HbO, HbR)</h3>
+
+<img data-src="index_files/figure-revealjs/fig-haemo-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-newborn"><p class="caption">
+Figure&nbsp;25: Haemodynamic response.
+</p></section>
+<section id="newborn-data-10" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="haemodynamic-response-hbo-hbr-6">Haemodynamic response (HbO, HbR)</h3>
+
+<img data-src="index_files/figure-revealjs/fig-haemo-newborn-channels-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-newborn-channels"><p class="caption">
+Figure&nbsp;26: Haemodynamic response in selected channels.
+</p></section>
+<section id="newborn-data-11" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="haemodynamic-response-hbo-hbr-7">Haemodynamic response (HbO, HbR)</h3>
+
+<img data-src="index_files/figure-revealjs/fig-haemo-psd-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-psd-newborn"><p class="caption">
+Figure&nbsp;27: Haemodynamic response power spectral density.
+</p></section>
+<section id="newborn-data-12" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="haemodynamic-response-hbo-hbr-8">Haemodynamic response (HbO, HbR)</h3>
+
+<img data-src="index_files/figure-revealjs/fig-haemo-filter-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-filter-newborn"><p class="caption">
+Figure&nbsp;28: Haemodynamic response after band-pass filter.
+</p></section>
+<section id="newborn-data-13" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="haemodynamic-response-hbo-hbr-9">Haemodynamic response (HbO, HbR)</h3>
+
+<img data-src="index_files/figure-revealjs/fig-haemo-filter-newborn-channels-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-filter-newborn-channels"><p class="caption">
+Figure&nbsp;29: Haemodynamic response after band-pass filter in selected channels.
+</p></section>
+<section id="newborn-data-14" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="epoching">Epoching</h3>
+<div class="cell" data-execution_count="31">
+<div id="tbl-annotations-newborns" class="cell quarto-float quarto-figure quarto-figure-center" data-execution_count="31">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-annotations-newborns-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Triggers/annotations in registered dataset.
+</figcaption>
+<div aria-describedby="tbl-annotations-newborns-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-display" data-execution_count="31">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe do-not-create-environment cell caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">onset</th>
+<th data-quarto-table-cell-role="th">duration</th>
+<th data-quarto-table-cell-role="th">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2025-05-19 16:27:37.749337</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2025-05-19 16:27:37.798489</td>
+<td>1.0</td>
+<td>11.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2025-05-19 16:28:04.340569</td>
+<td>1.0</td>
+<td>3.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2025-05-19 16:28:44.350297</td>
+<td>1.0</td>
+<td>9.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2025-05-19 16:29:10.843225</td>
+<td>1.0</td>
+<td>2.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">63</td>
+<td>2025-05-19 16:56:19.593049</td>
+<td>1.0</td>
+<td>3.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">64</td>
+<td>2025-05-19 16:56:59.602777</td>
+<td>1.0</td>
+<td>13.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">65</td>
+<td>2025-05-19 16:57:26.095705</td>
+<td>1.0</td>
+<td>3.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">66</td>
+<td>2025-05-19 16:57:36.712537</td>
+<td>1.0</td>
+<td>31.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">67</td>
+<td>2025-05-19 16:57:36.712537</td>
+<td>1.0</td>
+<td>12.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>68 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="newborn-data-15" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="epoching-1">Epoching</h3>
+
+<img data-src="index_files/figure-revealjs/fig-epochs-newborns-output-1.png" class="r-stretch quarto-figure-center" id="fig-epochs-newborns"><p class="caption">
+Figure&nbsp;30: Epoched haemodynamic response function.
+</p></section>
+<section id="newborn-data-16" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="epoching-2">Epoching</h3>
+
+<img data-src="index_files/figure-revealjs/fig-epochs-newborn-butterfly-output-1.png" class="r-stretch quarto-figure-center" id="fig-epochs-newborn-butterfly"><p class="caption">
+Figure&nbsp;31: Epoched haemodynamic response function across channels.
+</p></section>
+<section id="newborn-data-17" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="block-averages">Block averages</h3>
+
+<img data-src="index_files/figure-revealjs/fig-avg-newborn-hbo-output-1.png" class="r-stretch quarto-figure-center" id="fig-avg-newborn-hbo"><p class="caption">
+Figure&nbsp;32: Averaged HbO response across conditions.
+</p></section>
+<section id="newborn-data-18" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="block-averages-1">Block averages</h3>
+
+<img data-src="index_files/figure-revealjs/fig-avg-newborn-hbr-output-1.png" class="r-stretch quarto-figure-center" id="fig-avg-newborn-hbr"><p class="caption">
+Figure&nbsp;33: Averaged HbR response across conditions.
+</p></section></section>
+<section id="questions" class="title-slide slide level1 center">
+<h1>Questions?</h1>
 
 </section>
 
@@ -246,10 +719,51 @@
 <h1>Appendix</h1>
 
 </section>
-<section id="references" class="slide level2">
+<section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-abboub2016prosodic" class="csl-entry" role="listitem">
+Abboub, Nawal, Thierry Nazzi, and Judit Gervain. 2016. <span>“Prosodic Grouping at Birth.”</span> <em>Brain and Language</em> 162: 46–59.
+</div>
+<div id="ref-arco2018influence" class="csl-entry" role="listitem">
+Arco, Juan E, Carlos González-Garcı́a, Paloma Dı́az-Gutiérrez, Javier Ramı́rez, and Marı́a Ruz. 2018. <span>“Influence of Activation Pattern Estimates and Statistical Significance Tests in fMRI Decoding Analysis.”</span> <em>Journal of Neuroscience Methods</em> 308: 248–60.
+</div>
+<div id="ref-delaire2025nirstorm" class="csl-entry" role="listitem">
+Delaire, Édouard, Thomas Vincent, Zhengchen Cai, Alexis Machado, Laurent Hugueville, Denis Schwartz, Francois Tadel, et al. 2025. <span>“NIRSTORM: A Brainstorm Extension Dedicated to Functional Near-Infrared Spectroscopy Data Analysis, Advanced 3D Reconstructions, and Optimal Probe Design.”</span> <em>Neurophotonics</em> 12 (2): 025011–11.
+</div>
+<div id="ref-fu2021devfold" class="csl-entry" role="listitem">
+Fu, Xiaoxue, and John E Richards. 2021. <span>“devfOLD: A Toolbox for Designing Age-Specific fNIRS Channel Placement.”</span> <em>Neurophotonics</em> 8 (4): 045003–3.
+</div>
+<div id="ref-gemignani2021comparing" class="csl-entry" role="listitem">
+Gemignani, Jessica, and Judit Gervain. 2021. <span>“Comparing Different Pre-Processing Routines for Infant fNIRS Data.”</span> <em>Developmental Cognitive Neuroscience</em> 48: 100943.
+</div>
+<div id="ref-gramfort2013meg" class="csl-entry" role="listitem">
+Gramfort, Alexandre, Martin Luessi, Eric Larson, Denis A Engemann, Daniel Strohmeier, Christian Brodbeck, Roman Goj, et al. 2013. <span>“MEG and EEG Data Analysis with MNE-Python.”</span> <em>Frontiers in Neuroinformatics</em> 7: 267.
+</div>
+<div id="ref-huppert2009homer" class="csl-entry" role="listitem">
+Huppert, Theodore J, Solomon G Diamond, Maria A Franceschini, and David A Boas. 2009. <span>“<span class="nocase">HomER: a review of time-series analysis methods for near-infrared spectroscopy of the brain </span>.”</span> <em>Appl Opt</em> 48 (10): D280–98. <a href="https://doi.org/10.1364/ao.48.00d280">https://doi.org/10.1364/ao.48.00d280</a>.
+</div>
+<div id="ref-luke2021analysis" class="csl-entry" role="listitem">
+Luke, Robert, Eric Larson, Maureen J Shader, Hamish Innes-Brown, Lindsey Van Yper, Adrian KC Lee, Paul F Sowman, and David McAlpine. 2021. <span>“Analysis Methods for Measuring Passive Auditory fNIRS Responses Generated by a Block-Design Paradigm.”</span> <em>Neurophotonics</em> 8 (2): 025008–8.
+</div>
+<div id="ref-santosa2018nirs" class="csl-entry" role="listitem">
+Santosa, Hendrik, Xuetong Zhai, Frank Fishburn, and Theodore Huppert. 2018. <span>“The NIRS Brain AnalyzIR Toolbox.”</span> <em>Algorithms</em> 11 (5): 73.
+</div>
+<div id="ref-stute2025fnirs" class="csl-entry" role="listitem">
+Stute, Katharina, Louisa K Gossé, Samuel Montero-Hernandez, Guy A Perkins, Meryem A Yücel, Simone Cutini, Turgut Durduran, et al. 2025. <span>“The fNIRS Glossary Project: A Consensus-Based Resource for Functional Near-Infrared Spectroscopy Terminology.”</span> <em>Neurophotonics</em> 12 (2): 027801–1.
+</div>
+<div id="ref-tadel2011brainstorm" class="csl-entry" role="listitem">
+Tadel, François, Sylvain Baillet, John C Mosher, Dimitrios Pantazis, and Richard M Leahy. 2011. <span>“Brainstorm: A User-Friendly Application for MEG/EEG Analysis.”</span> <em>Computational Intelligence and Neuroscience</em> 2011 (1): 879716.
+</div>
+<div id="ref-yucel2024fnirs" class="csl-entry" role="listitem">
+Yücel, Meryem Ayşe, Robert Luke, Rickson Coelho Mesquita, Alexander von Lühmann, David Marc Anton Mehler, Michael Lührs, Jessica Gemignani, et al. 2024. <span>“The fNIRS Reproducibility Study Hub (FRESH): Exploring Variability and Enhancing Transparency in fNIRS Neuroimaging Research.”</span>
+</div>
+<div id="ref-zimeo2018fnirs" class="csl-entry" role="listitem">
+Zimeo Morais, Guilherme Augusto, Joana Bisol Balardin, and João Ricardo Sato. 2018. <span>“fNIRS Optodes’ Location Decider (fOLD): A Toolbox for Probe Arrangement Guided by Brain Regions-of-Interest.”</span> <em>Scientific Reports</em> 8 (1): 3341.
+</div>
+</div>
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

@@ -4,9 +4,10 @@ project:
     port: 4000
     browser: true
   output-dir: docs
+  render: 
+    - index.qmd
 
-title: "fNIRS in the Neurodevelopment of Cognition"
-subtitle: "Recording and Analysis"
+
 format:
   prezconf-revealjs:
     self-contained: false
@@ -16,6 +17,7 @@ format:
     preload-iframes: true
     link-external-newwindow: true
     github: gongcastro
+    bluesky: gongcastro
 
 authors:
   - Gonzalo García-Castro
@@ -25,11 +27,14 @@ resources:
 
 echo: false
 warning: false
+message: false
 fig-dpi: 800
-
+execute: 
+  cache: true
 bibliography: references.bib
 scrollable: true
 show-slide-number: all
+code-fold: true
 slide-number: c
 date: "2025-07-21"
 conference: Deep Tech Brain Summer School 2024-2025

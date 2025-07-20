@@ -1,3 +1,23 @@
+---
+title: "fNIRS in the Neurodevelopment of Cognition"
+subtitle: "Registration and Analysis"
+---
+
+```{python}
+# | label: setup
+from pathlib import Path
+import numpy as np
+import pandas as pd
+from matplotlib import pyplot as plt
+from nilearn.glm.first_level import glover_hrf
+import mne
+
+mne.set_log_level("ERROR")
+
+od_picks = ["S1_D1 760", "S1_D1 850"]
+haemo_picks = ["S1_D1 hbo", "S1_D1 hbr"]
+```
+
 ## Outline
 
 1) Brief overview of fNIRS
@@ -12,50 +32,619 @@
 
 Functional Near-Infrared Spectroscopy
 
+## The fNIRs Glossary project
+
+Community-sourced glossary [@stute2025fnirs]
+
+[https://openfnirs.org/standards/fnirs-glossary-project/](https://openfnirs.org/standards/fnirs-glossary-project/ 
+)
+![](img/glossary.png)
+
 ## The rationale behind fNIRS
 
-- Some materials, have different optical properties than others (e.g., they absorbe light of different colors)
+::: box
+1) Some materials have **different optical properties** than others (e.g., they absorbe more light of some colors)
+:::
 
-[ADD LIGHT WAVELENGHTS]
+![https://commons.wikimedia.org/wiki/File:EM_spectrumrevised.png](img/magnetic-spectrum.png)
 
-- We can study the composition of an object by analysing how light behaves when passing through it (i.g., **spectroscopy**)
+## The rationale behind fNIRS
 
-[ADD DIAGRAM ABOUT ABSORTION AND SCATTERING]
+::: box
+2) We can study the **composition of an object** by analysing how light behaves when passing through it (i.g., **spectroscopy**)
+:::
 
-- Oxy-haemoglobin (HbO) and deoxy-haemoglobin (HbR) have absorb **near-infrared light** differently
+![](img/spectroscopy.png)
 
-- If we shine near-infrared light into biological tissue, we can estimate changes in relative concentration of HbO and HbR time (**functional**)
+## The rationale behind fNIRS
 
-[ADD MLLB EQUATION]
+::: box
+3) **Oxy-haemoglobin** (HbO) and **deoxy-haemoglobin** (HbR) have absorb **near-infrared light** differently
+:::
 
-- In brain tissue, neuronal activity is followed by BOLD response. Using fNIRS, we can measure BOLD signal as a proxy of brain activity in an area.
+```{python}
+# | label: fig-absorption
+# | fig-cap: "Optical absorption of haemoglobin."
+# | fig-height: 4
+# | fig-width: 7
+df = pd.read_csv(Path("data", "hb-absorption.csv"))
+df = df[(df.wavelength >= 650) & (df.wavelength <= 900)]
+plt.plot(df.wavelength, df.hbo, c="tab:red", label="HbO", lw=5)
+plt.plot(df.wavelength, df.hbr, c="tab:blue", label="HbR", lw=5)
+plt.ylabel("Molar Extinction Coefficient\n(cm^-1/M)")
+plt.xlabel("Lambda (nm)")
+plt.legend()
+```
 
-## Desiging an fNIRS experiments
+## The rationale behind fNIRS
 
-- Low temporal resolution: the BOLD response takes time! (~15 seconds)
-- Two main types of experimental designs:
-  a) Block design
+::: box
+4) If we shine near-infrared light into biological tissue, we can estimate changes in relative concentration of HbO and HbR time (**functional**)
+:::
 
-## Desiging an fNIRS experiments
 
-- Low temporal resolution: the BOLD response takes time! (~15 seconds)
-- Two main types of experimental designs:
-  a) Block designs
-  a) Event-related designs
+Modified Beer-Lambert law:
 
-## Working with the youngest
+$$
+\Delta A(\lambda_1) = \text{DPF} \cdot r \cdot [\epsilon_{\text{HbO}} (\lambda_1) \cdot \Delta c_{\text{HbO}} + \epsilon_{\text{HbR}}(\lambda_1) \cdot \Delta c_{\text{HbR}}]
+$$ {#eq-hbo}
 
-## Hardware
+$$
+\Delta A(\lambda_2) = \text{DPF} \cdot r \cdot [\epsilon_{\text{HbO}} (\lambda_2) \cdot \Delta c_{\text{HbO}} + \epsilon_{\text{HbR}}(\lambda_2) \cdot \Delta c_{\text{HbR}}]
+$$ {#eq-hbr}
 
-![](img/setup.mp4)
+* $\text{DPF}$: differential pathlength factor
+* $\epsilon_{\text{HbO, HbR}}$: molar decadic absorption coefficient
+* $\Delta c_{\text{HbO, HbR}}$: concentration change in HbO or HbR.
 
-## Software
+## The rationale behind fNIRS
+
+::: box
+5) In brain tissue, neuronal activity is followed by **BOLD response**. Using fNIRS, we can measure BOLD signal as a proxy of brain activity in an area.
+:::
+
+![Cinciute (2019), *PeerJ*. https://doi.org/10.7717/peerj.6621](img/bold-hrf.png)
+
+## Desiging fNIRS experiments
+
+- **Low temporal resolution**: the BOLD response takes time! (~15 seconds)
+- Two main types of experimental designs
+
+![@arco2018influence](img/design.jpg)
+
+## Desiging fNIRS experiments
+
+### Working with the youngest
+
+* No instructions
+* Plenty of movement
+* Short attention and memory span
 
 ## Data acquisition
 
+### Commercially available sytems
+
+Society for functional Near Infreared spectroscopy ([https://fnirs.org](https://fnirs.org))
+
+- [NIRx](https://nirx.net) (Germany): NIRSport2
+- [Artinis](https://www.artinis.com) (The Netherlands): Brite, OxyMon
+- [Hitachi](https://healthcaresolutions-us.fujifilm.com/) (Japan): ETG 4000
+- [GowerLabs](https://www.gowerlabs.co.uk/) (UK): LUMO (HD-DOT system)
+- [Cortivision](https://www.cortivision.com/) (Poland): Spectrum C23 fNIRS
+- [PIONIRS](https://www.pionirs.com/wp/) (Italy): NIRSBOX
+
+
+## Desiging fNIRS experiments
+
+![](img/setup.mp4)
+
+## Desiging fNIRS experiments
+
+### Optode montage
+
+1) Define regions of interest (ROI)
+2) Identify optimal positioning of sources and detectors
+    - NIRSite (NIRx)
+    - FOLD [@zimeo2018fnirs], devFOLD [@fu2021devfold]
+
+## Desiging fNIRS experiments
+
+### Optode montage
+
+![NIRSite layout from @abboub2016prosodic](img/montage-3d.png)
+
+## Desiging fNIRS experiments
+
+### Designing an optode montage
+
+![NIRSite layout from @abboub2016prosodic](img/montage-2d.png)
+
+
+## Data acquisition
+
+### Recording software
+
+::: box
+Demonstration with **NIRSport2** and **Aurora** Recording Software (NIRx).
+:::
+
 ## Data preprocessing and analysis
 
-# Questions and answers
+### Sofware
+
+- Homer2, [Homer3](https://openfnirs.org/software/homer/) [@huppert2009homer]
+- [MNE-Python](https://mne.tools/stable/index.html) [@gramfort2013meg], [MNE-NIRS](https://mne.tools/mne-nirs/stable/index.html) [@luke2021analysis]
+- [AnalyzIR](https://github.com/huppertt/nirs-toolbox) [@santosa2018nirs]
+- [Brainstorm](https://neuroimage.usc.edu/brainstorm) [@tadel2011brainstorm], [NIRStorm](https://github.com/Nirstorm/nirstorm) [@delaire2025nirstorm] 
+
+## Data preprocessing
+
+### Steps
+
+1) Import raw **light intensity** data (e.g., `.snirf`)
+2) Transform for **optical density** data
+3) **Signal quality** checks and enhancement:
+    3.1) Scalp coupling index
+    3.2) Short channel regression
+    3.3) Motion arctifact correction (e.g., temporal derivative distribution repair)
+4) Transform to **$\Delta\text{HbO}$ and $\Delta\text{HbR}$**
+5) Attenuate **physiological arctifacts** (e.g., band-pass filtering)
+6) **Epoching** and averaging
+
+## Data preprocessing and analysis
+
+### Steps
+
+* Many choices to be made: Which steps? In what order?
+* Always consider your research question, your population of interest, and your device!
+* Many different pipelines generate equivalent results [@yucel2024fnirs]
+* Today, we are following recommendations by @gemignani2021comparing
+
+## Adult data
+
+### Raw data
+
+```{python}
+# | label: fig-raw-adult
+# | fig-cap: Raw light intensity.
+import mne
+import mne_nirs
+from pathlib import Path
+
+raw = mne.io.read_raw_nirx(Path("data", "adult-data"))
+plot = raw.plot(n_channels=len(raw.ch_names), duration=raw.times[-1], show=False)
+```
+
+## Adult data
+
+### Raw data
+
+```{python}
+# | label: fig-raw-adult-channels
+# | fig-cap: Raw light intensity in selected channels.
+onset, offset = raw.times[100], raw.times[700]
+duration = offset - onset
+plot = (
+    raw.copy()
+    .pick(od_picks)
+    .plot(start=onset, duration=duration, scalings=0.005, show=False)
+)
+```
+
+## Adult data
+
+### Optical density
+
+```{python}
+# | label: fig-od-adult
+# | fig-cap: Optical density.
+od = mne.preprocessing.nirs.optical_density(raw)
+plot = od.copy().pick(od_picks).plot(
+    start=onset, duration=duration, scalings=0.05, show=False
+)
+```
+
+## Adult data
+
+### Optical density
+
+```{python}
+# | label: fig-od-psd-adult
+# | fig-cap: Optical density power spectral density.
+plot = od.compute_psd().plot(show=False)
+```
+
+## Adult data
+
+### Optical density
+
+```{python}
+# | label: fig-sci-adult
+# | fig-cap: Scalp coupling index.
+sci_list = mne.preprocessing.nirs.scalp_coupling_index(od)
+sci_threshold = 0.8
+plt.hist(sci_list, color="tab:orange")
+plt.vlines([sci_threshold], ymin=0, ymax=80, ls="dotted", colors="k", lw=2)
+```
+
+## Adult data
+
+### Optical density
+
+```{python}
+# | label: fig-od-sci-psd-adult
+# | fig-cap: Optical density power spectral density after excluding channels with low SCI.
+od.info["bads"] = [ch for ch, sci in zip(od.ch_names, sci_list) if sci < sci_threshold]
+plot = od.compute_psd().plot(show=False)
+```
+
+## Adult data
+
+### Optical density
+
+```{python}
+# | label: fig-od-short-adult
+# | fig-cap: Optical density after short channel regression.
+od = mne_nirs.signal_enhancement.short_channel_regression(od, max_dist=0.02)
+plot = (
+    od.copy()
+    .pick(od_picks)
+    .plot(start=onset, duration=duration, scalings=0.05, show=False)
+)
+```
+
+## Adult data
+
+### Optical density
+
+```{python}
+# | label: fig-od-short-psd-adult
+# | fig-cap: Optical density power spectral density after short channel regression.
+plot = od.compute_psd().plot()
+```
+
+## Adult data
+
+### Optical density
+
+```{python}
+# | label: fig-od-tddr-adult
+# | fig-cap: Optical density after TDDR.
+od = mne.preprocessing.nirs.tddr(od)
+plot = (
+    od.copy()
+    .pick(od_picks)
+    .plot(start=onset, duration=duration, scalings=0.05, show=False)
+)
+```
+
+## Adult data
+
+### Optical density
+
+```{python}
+# | label: fig-od-tddr-psd-adult
+# | fig-cap: Optical density power spectral density after TDDR.
+plot = od.compute_psd().plot(show=False)
+```
+
+## Adult data
+
+### Haemodynamic response (HbO, HbR)
+
+```{python}
+# | label: fig-haemo-adult
+# | fig-cap: Haemodynamic response.
+haemo = mne.preprocessing.nirs.beer_lambert_law(od, ppf=6)
+haemo = mne_nirs.channels.get_long_channels(haemo)
+plot = haemo.plot(n_channels=len(haemo.ch_names), duration=haemo.times[-1], show=False)
+```
+
+## Adult data
+
+### Haemodynamic response (HbO, HbR)
+
+```{python}
+# | label: fig-haemo-adult-channels
+# | fig-cap: Haemodynamic response in selected channels.
+plot = (
+    haemo.copy()
+    .pick(haemo_picks)
+    .plot(start=onset, duration=duration, scalings=0.5e-6, show=False)
+)
+```
+
+## Adult data
+
+### Haemodynamic response (HbO, HbR)
+
+```{python}
+# | label: fig-haemo-psd-adult
+# | fig-cap: Haemodynamic response power spectral density.
+plot = haemo.compute_psd().plot(show=False)
+```
+
+
+## Adult data
+
+### Haemodynamic response (HbO, HbR)
+
+```{python}
+# | label: fig-haemo-filter-adult
+# | fig-cap: Haemodynamic response band-passs filter.
+haemo.filter(l_freq=0.01, h_freq=0.8, h_trans_bandwidth=0.2)
+plot = haemo.compute_psd().plot(show=False)
+```
+
+## Adult data
+
+### Haemodynamic response (HbO, HbR)
+
+```{python}
+# | label: fig-haemo-filter-adult-channels
+# | fig-cap: Haemodynamic response in selected channels after band-pass filter.
+plot = (
+    haemo.copy()
+    .pick(haemo_picks)
+    .plot(start=onset, duration=duration, scalings=0.5e-6, show=False)
+)
+```
+
+
+## Newborn data
+
+### Raw data
+
+```{python}
+# | label: fig-raw-newborn
+# | fig-cap: Raw light intensity.
+raw = mne.io.read_raw_nirx(Path("data", "infant-data"))
+plot = raw.plot(n_channels=len(raw.ch_names), duration=600, show=False)
+```
+
+## Newborn data
+
+### Raw data
+
+```{python}
+# | label: fig-raw-newborn-channels
+# | fig-cap: Raw light intensity in selected channels.
+onset, offset = raw.times[100], raw.times[700]
+plot = (
+    raw.copy()
+    .pick(od_picks)
+    .plot(start=onset, duration=duration, scalings=0.05, show=False)
+)
+```
+
+## Newborn data
+
+### Optical density
+
+```{python}
+# | label: fig-od-newborn
+# | fig-cap: Optical density in selected channels.
+od = mne.preprocessing.nirs.optical_density(raw)
+plot = (
+    od.copy()
+    .pick(od_picks)
+    .plot(start=onset, duration=duration, scalings=0.2, show=False)
+)
+```
+
+## Newborn data
+
+### Optical density
+
+```{python}
+# | label: fig-od-psd-newborn
+# | fig-cap: Optical density power spectral density.
+plot = od.compute_psd().plot(show=False)
+```
+
+## Newborn data
+
+### Optical density
+
+```{python}
+# | label: fig-od-sci-newborn
+# | fig-cap: Scalp coupling index.
+sci_list = mne.preprocessing.nirs.scalp_coupling_index(od)
+sci_threshold = 0.8
+plt.hist(sci_list, color="tab:orange")
+plt.vlines([sci_threshold], ymin=0, ymax=80, ls="dotted", colors="k", lw=2)
+```
+
+## Newborn data
+
+### Optical density
+
+```{python}
+# | label: fig-od-psd-sci-newborn
+# | fig-cap: Optical density power spectral density after removing channels with low SCI.
+od.info["bads"] = [ch for ch, sci in zip(od.ch_names, sci_list) if sci < sci_threshold]
+plot = od.compute_psd().plot(show=False)
+```
+
+## Newborn data
+
+### Optical density
+
+::: box
+Short channel regression in infants?
+:::
+
+## Newborn data
+
+### Optical density
+
+```{python}
+# | label: fig-od-tddr-newborn
+# | fig-cap: Optical density after TDDR.
+od = mne.preprocessing.nirs.tddr(od)
+plot = (
+    od.copy()
+    .pick(od_picks)
+    .plot(start=onset, duration=duration, scalings=0.05, show=False)
+)
+```
+
+## Newborn data
+
+### Optical density
+
+```{python}
+# | label: fig-od-tddr-psd-newborn
+# | fig-cap: Optical density power spectral density after TDDR.
+plot = od.compute_psd().plot(show=False)
+```
+
+## Newborn data
+
+### Haemodynamic response (HbO, HbR)
+
+```{python}
+# | label: fig-haemo-newborn
+# | fig-cap: Haemodynamic response.
+haemo = mne.preprocessing.nirs.beer_lambert_law(od, ppf=6)
+haemo = mne_nirs.channels.get_long_channels(haemo)
+plot = haemo.plot(n_channels=len(haemo.ch_names), duration=haemo.times[-1], show=False)
+```
+
+## Newborn data
+
+### Haemodynamic response (HbO, HbR)
+
+```{python}
+# | label: fig-haemo-newborn-channels
+# | fig-cap: Haemodynamic response in selected channels.
+plot = (
+    haemo.copy()
+    .pick(haemo_picks)
+    .plot(start=onset, duration=duration, scalings=1e-6, show=False)
+)
+```
+
+## Newborn data
+
+### Haemodynamic response (HbO, HbR)
+
+```{python}
+# | label: fig-haemo-psd-newborn
+# | fig-cap: Haemodynamic response power spectral density.
+plot = haemo.compute_psd().plot(show=False)
+```
+
+
+## Newborn data
+
+### Haemodynamic response (HbO, HbR)
+
+```{python}
+# | label: fig-haemo-filter-newborn
+# | fig-cap: Haemodynamic response after band-pass filter.
+haemo.filter(l_freq=0.01, h_freq=1.0, h_trans_bandwidth=0.2)
+plot = haemo.compute_psd().plot(show=False)
+```
+
+## Newborn data
+
+### Haemodynamic response (HbO, HbR)
+
+```{python}
+# | label: fig-haemo-filter-newborn-channels
+# | fig-cap: Haemodynamic response after band-pass filter in selected channels.
+plot = (
+    haemo.copy()
+    .pick(haemo_picks)
+    .plot(start=onset, duration=duration, scalings=1e-6, show=False)
+)
+```
+
+## Newborn data
+
+### Epoching
+
+```{python}
+# | label: tbl-annotations-newborns
+# | tbl-cap: Triggers/annotations in registered dataset.
+haemo.annotations.to_data_frame()
+```
+
+## Newborn data
+
+### Epoching
+
+```{python}
+# | label: fig-epochs-newborns
+# | fig-cap: Epoched haemodynamic response function.
+event_mappings = {
+    "6.0": 1,
+    "7.0": 1,
+    "8.0": 1,
+    "9.0": 1,
+    "10.0": 2,
+    "11.0": 2,
+    "12.0": 2,
+    "13.0": 2,
+    "14.0": 3,
+    "15.0": 3,
+    "16.0": 3,
+    "17.0": 3,
+}
+events = mne.events_from_annotations(haemo, event_id=event_mappings)
+epochs = mne.Epochs(
+    haemo,
+    tmin=-5,
+    tmax=57.5,
+    events=events[0],
+    detrend=1,
+    baseline=(-5, None),
+    preload=True,
+)
+plot = epochs.plot(n_channels=len(epochs.ch_names), n_epochs=len(epochs), show=False)
+```
+
+
+## Newborn data
+
+### Epoching
+
+```{python}
+# | label: fig-epochs-newborn-butterfly
+# | fig-cap: Epoched haemodynamic response function across channels.
+plot = epochs.plot(butterfly=True, scalings=1e-6, show=False)
+```
+
+## Newborn data
+
+### Block averages
+
+```{python}
+# | label: fig-avg-newborn-hbo
+# | fig-cap: Averaged HbO response across conditions.
+avg = epochs.average(by_event_type=True)
+fig, axes = plt.subplots(3, 1)
+fig.tight_layout()
+for (idx, a), ax in zip(enumerate(avg), axes):
+    a.copy().pick("hbo").plot(axes=ax, show=False)
+```
+
+## Newborn data
+
+### Block averages
+
+```{python}
+# | label: fig-avg-newborn-hbr
+# | fig-cap: Averaged HbR response across conditions.
+avg = epochs.average(by_event_type=True)
+fig.tight_layout()
+fig, axes = plt.subplots(3, 1)
+for (idx, a), ax in zip(enumerate(avg), axes):
+    ax = a.copy().pick("hbr").plot(axes=ax, show=False)
+```
+
+# Questions?
 
 # Appendix
 

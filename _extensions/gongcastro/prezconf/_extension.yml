@@ -11,7 +11,7 @@ contributes:
       - title-slide.html
       format-resources:
       - logo-github.png
-      - logo-twitter.png
+      - logo-bluesky.svg
       - logo-orcid.png
       - logo-sjd.png
       affiliation-logo:
