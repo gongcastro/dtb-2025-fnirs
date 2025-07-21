@@ -49,7 +49,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-e97dbe6debb2f67bac54086e980acf61.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-7b05bea90eec616a6eeb20e589aa4370.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -208,10 +208,11 @@
 <p>Functional Near-Infrared Spectroscopy</p>
 </section>
 <section id="the-fnirs-glossary-project" class="slide level2">
-<h2>The fNIRs Glossary project</h2>
+<h2>The fNIRS Glossary project</h2>
 <p>Community-sourced glossary <span class="citation" data-cites="stute2025fnirs">(<a href="#/references" role="doc-biblioref" onclick="">Stute et al. 2025</a>)</span></p>
-<p><a href="https://openfnirs.org/standards/fnirs-glossary-project/">https://openfnirs.org/standards/fnirs-glossary-project/</a> <img data-src="img/glossary.png"></p>
-</section>
+<p><a href="https://openfnirs.org/standards/fnirs-glossary-project/">https://openfnirs.org/standards/fnirs-glossary-project/</a></p>
+
+<img data-src="img/glossary.png" class="r-stretch"></section>
 <section id="the-rationale-behind-fnirs" class="slide level2 scrollable">
 <h2>The rationale behind fNIRS</h2>
 <div class="box">
@@ -315,7 +316,8 @@ Figure&nbsp;1: Optical absorption of haemoglobin.
 <li>FOLD <span class="citation" data-cites="zimeo2018fnirs">(<a href="#/references" role="doc-biblioref" onclick="">Zimeo Morais, Balardin, and Sato 2018</a>)</span>, devFOLD <span class="citation" data-cites="fu2021devfold">(<a href="#/references" role="doc-biblioref" onclick="">Fu and Richards 2021</a>)</span></li>
 </ul></li>
 </ol>
-</section>
+
+<img data-src="img/short-channel.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="citation" data-cites="pinti2019current">Pinti et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span></p></section>
 <section id="desiging-fnirs-experiments-4" class="slide level2">
 <h2>Desiging fNIRS experiments</h2>
 <h3 id="optode-montage-1">Optode montage</h3>
@@ -325,17 +327,20 @@ Figure&nbsp;1: Optical absorption of haemoglobin.
 <h2>Desiging fNIRS experiments</h2>
 <h3 id="designing-an-optode-montage">Designing an optode montage</h3>
 
-<img data-src="img/montage-2d.png" class="r-stretch quarto-figure-center"><p class="caption">NIRSite layout from <span class="citation" data-cites="abboub2016prosodic">Abboub, Nazzi, and Gervain (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span></p></section>
-<section id="data-acquisition-1" class="slide level2">
-<h2>Data acquisition</h2>
-<h3 id="recording-software">Recording software</h3>
-<div class="box">
+<img data-src="img/montage-2d.png" class="r-stretch quarto-figure-center"><p class="caption">NIRSite layout from <span class="citation" data-cites="abboub2016prosodic">Abboub, Nazzi, and Gervain (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span></p></section></section>
+<section id="data-acquisition-1" class="title-slide slide level1 center">
+<h1>Data acquisition</h1>
 <p>Demonstration with <strong>NIRSport2</strong> and <strong>Aurora</strong> Recording Software (NIRx).</p>
-</div>
 </section>
-<section id="data-preprocessing-and-analysis" class="slide level2">
-<h2>Data preprocessing and analysis</h2>
-<h3 id="sofware">Sofware</h3>
+
+<section>
+<section id="data-preprocessing-and-analysis" class="title-slide slide level1 center">
+<h1>Data preprocessing and analysis</h1>
+<p>Adult data: Hernández, Garcia-Castro, and Redolar-Ripoll (2025, in prep)</p>
+<p>Newborn data: Garcia-Castro, Alarcón-Allen, and Santolin (2025, in prep)</p>
+</section>
+<section id="sofware" class="slide level2">
+<h2>Sofware</h2>
 <ul>
 <li>Homer2, <a href="https://openfnirs.org/software/homer/">Homer3</a> <span class="citation" data-cites="huppert2009homer">(<a href="#/references" role="doc-biblioref" onclick="">Huppert et al. 2009</a>)</span></li>
 <li><a href="https://mne.tools/stable/index.html">MNE-Python</a> <span class="citation" data-cites="gramfort2013meg">(<a href="#/references" role="doc-biblioref" onclick="">Gramfort et al. 2013</a>)</span>, <a href="https://mne.tools/mne-nirs/stable/index.html">MNE-NIRS</a> <span class="citation" data-cites="luke2021analysis">(<a href="#/references" role="doc-biblioref" onclick="">Luke et al. 2021</a>)</span></li>
@@ -345,7 +350,6 @@ Figure&nbsp;1: Optical absorption of haemoglobin.
 </section>
 <section id="data-preprocessing" class="slide level2 scrollable">
 <h2>Data preprocessing</h2>
-<h3 id="steps">Steps</h3>
 <ol type="1">
 <li>Import raw <strong>light intensity</strong> data (e.g., <code>.snirf</code>)</li>
 <li>Transform for <strong>optical density</strong> data</li>
@@ -357,7 +361,7 @@ Figure&nbsp;1: Optical absorption of haemoglobin.
 </section>
 <section id="data-preprocessing-and-analysis-1" class="slide level2">
 <h2>Data preprocessing and analysis</h2>
-<h3 id="steps-1">Steps</h3>
+<h3 id="steps">Steps</h3>
 <ul>
 <li>Many choices to be made: Which steps? In what order?</li>
 <li>Always consider your research question, your population of interest, and your device!</li>
@@ -389,196 +393,193 @@ Figure&nbsp;4: Optical density.
 <section id="adult-data-3" class="slide level2">
 <h2>Adult data</h2>
 <h3 id="optical-density-1">Optical density</h3>
-
-<img data-src="index_files/figure-revealjs/fig-od-psd-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-psd-adult"><p class="caption">
-Figure&nbsp;5: Optical density power spectral density.
-</p></section>
+<p>Complex signals are made of simpler signals.</p>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Heart rate</li>
+<li>Respiration</li>
+<li>Mayer waves</li>
+<li>Etc.</li>
+</ul>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/fourier.jpg"></p>
+<figcaption>https://phys.org/</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
 <section id="adult-data-4" class="slide level2">
 <h2>Adult data</h2>
 <h3 id="optical-density-2">Optical density</h3>
 
-<img data-src="index_files/figure-revealjs/fig-sci-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-sci-adult"><p class="caption">
-Figure&nbsp;6: Scalp coupling index.
+<img data-src="index_files/figure-revealjs/fig-od-psd-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-psd-adult"><p class="caption">
+Figure&nbsp;5: Optical density power spectral density.
 </p></section>
 <section id="adult-data-5" class="slide level2">
 <h2>Adult data</h2>
-<h3 id="optical-density-3">Optical density</h3>
+<h3 id="signal-quality">Signal quality</h3>
+<p>Scalp coupling index <span class="citation" data-cites="pollonini2016phoebe">(<a href="#/references" role="doc-biblioref" onclick="">Pollonini, Bortfeld, and Oghalai 2016</a>)</span> and automatic channel rejection (SCI &lt; 0.8).</p>
+
+<img data-src="index_files/figure-revealjs/fig-sci-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-sci-adult"><p class="caption">
+Figure&nbsp;6: Scalp coupling index.
+</p></section>
+<section id="adult-data-6" class="slide level2">
+<h2>Adult data</h2>
+<h3 id="signal-quality-1">Signal quality</h3>
 
 <img data-src="index_files/figure-revealjs/fig-od-sci-psd-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-sci-psd-adult"><p class="caption">
 Figure&nbsp;7: Optical density power spectral density after excluding channels with low SCI.
 </p></section>
-<section id="adult-data-6" class="slide level2">
+<section id="adult-data-7" class="slide level2">
 <h2>Adult data</h2>
-<h3 id="optical-density-4">Optical density</h3>
+<h3 id="signal-enhancement">Signal enhancement</h3>
+<p>Short channel regression <span class="citation" data-cites="fabbri2004optical">(<a href="#/references" role="doc-biblioref" onclick="">Fabbri et al. 2004</a>)</span>.</p>
+
+<img data-src="img/short-channel.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="citation" data-cites="pinti2019current">Pinti et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span></p></section>
+<section id="adult-data-8" class="slide level2">
+<h2>Adult data</h2>
+<h3 id="signal-enhancement-1">Signal enhancement</h3>
+<p>Short channel regression <span class="citation" data-cites="fabbri2004optical">(<a href="#/references" role="doc-biblioref" onclick="">Fabbri et al. 2004</a>)</span>.</p>
 
 <img data-src="index_files/figure-revealjs/fig-od-short-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-short-adult"><p class="caption">
 Figure&nbsp;8: Optical density after short channel regression.
 </p></section>
-<section id="adult-data-7" class="slide level2">
-<h2>Adult data</h2>
-<h3 id="optical-density-5">Optical density</h3>
-
-<img data-src="index_files/figure-revealjs/fig-od-short-psd-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-short-psd-adult"><p class="caption">
-Figure&nbsp;9: Optical density power spectral density after short channel regression.
-</p></section>
-<section id="adult-data-8" class="slide level2">
-<h2>Adult data</h2>
-<h3 id="optical-density-6">Optical density</h3>
-
-<img data-src="index_files/figure-revealjs/fig-od-tddr-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-tddr-adult"><p class="caption">
-Figure&nbsp;10: Optical density after TDDR.
-</p></section>
 <section id="adult-data-9" class="slide level2">
 <h2>Adult data</h2>
-<h3 id="optical-density-7">Optical density</h3>
+<h3 id="motion-arctifact-correction">Motion arctifact correction</h3>
+<p>Temporal derivative distribution repair (TDDR) <span class="citation" data-cites="fishburn2019temporal">(<a href="#/references" role="doc-biblioref" onclick="">Fishburn et al. 2019</a>)</span>.</p>
 
-<img data-src="index_files/figure-revealjs/fig-od-tddr-psd-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-tddr-psd-adult"><p class="caption">
-Figure&nbsp;11: Optical density power spectral density after TDDR.
+<img data-src="index_files/figure-revealjs/fig-od-tddr-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-tddr-adult"><p class="caption">
+Figure&nbsp;9: Optical density after TDDR.
 </p></section>
 <section id="adult-data-10" class="slide level2">
 <h2>Adult data</h2>
-<h3 id="haemodynamic-response-hbo-hbr">Haemodynamic response (HbO, HbR)</h3>
+<h3 id="haemodynamic-response-deltatexthbo-deltatexthbr">Haemodynamic response (<span class="math inline">\(\Delta\text{HbO}\)</span>, <span class="math inline">\(\Delta\text{HbR}\)</span>)</h3>
 
 <img data-src="index_files/figure-revealjs/fig-haemo-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-adult"><p class="caption">
-Figure&nbsp;12: Haemodynamic response.
+Figure&nbsp;10: Haemodynamic response.
 </p></section>
 <section id="adult-data-11" class="slide level2">
 <h2>Adult data</h2>
-<h3 id="haemodynamic-response-hbo-hbr-1">Haemodynamic response (HbO, HbR)</h3>
+<h3 id="haemodynamic-response-deltatexthbo-deltatexthbr-1">Haemodynamic response (<span class="math inline">\(\Delta\text{HbO}\)</span>, <span class="math inline">\(\Delta\text{HbR}\)</span>)</h3>
 
 <img data-src="index_files/figure-revealjs/fig-haemo-adult-channels-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-adult-channels"><p class="caption">
-Figure&nbsp;13: Haemodynamic response in selected channels.
+Figure&nbsp;11: Haemodynamic response in selected channels.
 </p></section>
 <section id="adult-data-12" class="slide level2">
 <h2>Adult data</h2>
-<h3 id="haemodynamic-response-hbo-hbr-2">Haemodynamic response (HbO, HbR)</h3>
+<h3 id="haemodynamic-response-deltatexthbo-deltatexthbr-2">Haemodynamic response (<span class="math inline">\(\Delta\text{HbO}\)</span>, <span class="math inline">\(\Delta\text{HbR}\)</span>)</h3>
 
 <img data-src="index_files/figure-revealjs/fig-haemo-psd-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-psd-adult"><p class="caption">
-Figure&nbsp;14: Haemodynamic response power spectral density.
+Figure&nbsp;12: Haemodynamic response power spectral density.
 </p></section>
 <section id="adult-data-13" class="slide level2">
 <h2>Adult data</h2>
-<h3 id="haemodynamic-response-hbo-hbr-3">Haemodynamic response (HbO, HbR)</h3>
+<h3 id="haemodynamic-response-deltatexthbo-deltatexthbr-3">Haemodynamic response (<span class="math inline">\(\Delta\text{HbO}\)</span>, <span class="math inline">\(\Delta\text{HbR}\)</span>)</h3>
 
 <img data-src="index_files/figure-revealjs/fig-haemo-filter-adult-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-filter-adult"><p class="caption">
-Figure&nbsp;15: Haemodynamic response band-passs filter.
+Figure&nbsp;13: Haemodynamic response band-passs filter.
 </p></section>
 <section id="adult-data-14" class="slide level2">
 <h2>Adult data</h2>
-<h3 id="haemodynamic-response-hbo-hbr-4">Haemodynamic response (HbO, HbR)</h3>
+<h3 id="haemodynamic-response-deltatexthbo-deltatexthbr-4">Haemodynamic response (<span class="math inline">\(\Delta\text{HbO}\)</span>, <span class="math inline">\(\Delta\text{HbR}\)</span>)</h3>
 
 <img data-src="index_files/figure-revealjs/fig-haemo-filter-adult-channels-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-filter-adult-channels"><p class="caption">
-Figure&nbsp;16: Haemodynamic response in selected channels after band-pass filter.
+Figure&nbsp;14: Haemodynamic response in selected channels after band-pass filter.
 </p></section>
 <section id="newborn-data" class="slide level2">
 <h2>Newborn data</h2>
 <h3 id="raw-data-2">Raw data</h3>
 
 <img data-src="index_files/figure-revealjs/fig-raw-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-raw-newborn"><p class="caption">
-Figure&nbsp;17: Raw light intensity.
+Figure&nbsp;15: Raw light intensity.
 </p></section>
 <section id="newborn-data-1" class="slide level2">
 <h2>Newborn data</h2>
 <h3 id="raw-data-3">Raw data</h3>
 
 <img data-src="index_files/figure-revealjs/fig-raw-newborn-channels-output-1.png" class="r-stretch quarto-figure-center" id="fig-raw-newborn-channels"><p class="caption">
-Figure&nbsp;18: Raw light intensity in selected channels.
+Figure&nbsp;16: Raw light intensity in selected channels.
 </p></section>
 <section id="newborn-data-2" class="slide level2">
 <h2>Newborn data</h2>
-<h3 id="optical-density-8">Optical density</h3>
+<h3 id="optical-density-3">Optical density</h3>
 
 <img data-src="index_files/figure-revealjs/fig-od-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-newborn"><p class="caption">
-Figure&nbsp;19: Optical density in selected channels.
+Figure&nbsp;17: Optical density in selected channels.
 </p></section>
 <section id="newborn-data-3" class="slide level2">
 <h2>Newborn data</h2>
-<h3 id="optical-density-9">Optical density</h3>
+<h3 id="optical-density-4">Optical density</h3>
 
 <img data-src="index_files/figure-revealjs/fig-od-psd-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-psd-newborn"><p class="caption">
-Figure&nbsp;20: Optical density power spectral density.
+Figure&nbsp;18: Optical density power spectral density.
 </p></section>
 <section id="newborn-data-4" class="slide level2">
 <h2>Newborn data</h2>
-<h3 id="optical-density-10">Optical density</h3>
-
-<img data-src="index_files/figure-revealjs/fig-od-sci-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-sci-newborn"><p class="caption">
-Figure&nbsp;21: Scalp coupling index.
-</p></section>
-<section id="newborn-data-5" class="slide level2">
-<h2>Newborn data</h2>
-<h3 id="optical-density-11">Optical density</h3>
-
-<img data-src="index_files/figure-revealjs/fig-od-psd-sci-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-psd-sci-newborn"><p class="caption">
-Figure&nbsp;22: Optical density power spectral density after removing channels with low SCI.
-</p></section>
-<section id="newborn-data-6" class="slide level2">
-<h2>Newborn data</h2>
-<h3 id="optical-density-12">Optical density</h3>
+<h3 id="signal-enhancement-2">Signal enhancement</h3>
 <div class="box">
 <p>Short channel regression in infants?</p>
 </div>
-</section>
-<section id="newborn-data-7" class="slide level2">
+
+<img data-src="img/short-channel.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="citation" data-cites="pinti2019current">Pinti et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span></p></section>
+<section id="newborn-data-5" class="slide level2">
 <h2>Newborn data</h2>
-<h3 id="optical-density-13">Optical density</h3>
+<h3 id="motion-arctifact-correction-1">Motion arctifact correction</h3>
+<p>Temporal derivative distribution repair (TDDR).</p>
 
 <img data-src="index_files/figure-revealjs/fig-od-tddr-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-tddr-newborn"><p class="caption">
-Figure&nbsp;23: Optical density after TDDR.
+Figure&nbsp;19: Optical density after TDDR.
+</p></section>
+<section id="newborn-data-6" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="haemodynamic-response-deltatexthbo-deltatexthbr-5">Haemodynamic response (<span class="math inline">\(\Delta\text{HbO}\)</span>, <span class="math inline">\(\Delta\text{HbR}\)</span>)</h3>
+
+<img data-src="index_files/figure-revealjs/fig-haemo-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-newborn"><p class="caption">
+Figure&nbsp;20: Haemodynamic response.
+</p></section>
+<section id="newborn-data-7" class="slide level2">
+<h2>Newborn data</h2>
+<h3 id="haemodynamic-response-deltatexthbo-deltatexthbr-6">Haemodynamic response (<span class="math inline">\(\Delta\text{HbO}\)</span>, <span class="math inline">\(\Delta\text{HbR}\)</span>)</h3>
+
+<img data-src="index_files/figure-revealjs/fig-haemo-newborn-channels-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-newborn-channels"><p class="caption">
+Figure&nbsp;21: Haemodynamic response in selected channels.
 </p></section>
 <section id="newborn-data-8" class="slide level2">
 <h2>Newborn data</h2>
-<h3 id="optical-density-14">Optical density</h3>
+<h3 id="haemodynamic-response-deltatexthbo-deltatexthbr-7">Haemodynamic response (<span class="math inline">\(\Delta\text{HbO}\)</span>, <span class="math inline">\(\Delta\text{HbR}\)</span>)</h3>
 
-<img data-src="index_files/figure-revealjs/fig-od-tddr-psd-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-od-tddr-psd-newborn"><p class="caption">
-Figure&nbsp;24: Optical density power spectral density after TDDR.
+<img data-src="index_files/figure-revealjs/fig-haemo-psd-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-psd-newborn"><p class="caption">
+Figure&nbsp;22: Haemodynamic response power spectral density.
 </p></section>
 <section id="newborn-data-9" class="slide level2">
 <h2>Newborn data</h2>
-<h3 id="haemodynamic-response-hbo-hbr-5">Haemodynamic response (HbO, HbR)</h3>
+<h3 id="haemodynamic-response-deltatexthbo-deltatexthbr-8">Haemodynamic response (<span class="math inline">\(\Delta\text{HbO}\)</span>, <span class="math inline">\(\Delta\text{HbR}\)</span>)</h3>
 
-<img data-src="index_files/figure-revealjs/fig-haemo-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-newborn"><p class="caption">
-Figure&nbsp;25: Haemodynamic response.
+<img data-src="index_files/figure-revealjs/fig-haemo-filter-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-filter-newborn"><p class="caption">
+Figure&nbsp;23: Haemodynamic response after band-pass filter.
 </p></section>
 <section id="newborn-data-10" class="slide level2">
 <h2>Newborn data</h2>
-<h3 id="haemodynamic-response-hbo-hbr-6">Haemodynamic response (HbO, HbR)</h3>
+<h3 id="haemodynamic-response-deltatexthbo-deltatexthbr-9">Haemodynamic response (<span class="math inline">\(\Delta\text{HbO}\)</span>, <span class="math inline">\(\Delta\text{HbR}\)</span>)</h3>
 
-<img data-src="index_files/figure-revealjs/fig-haemo-newborn-channels-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-newborn-channels"><p class="caption">
-Figure&nbsp;26: Haemodynamic response in selected channels.
+<img data-src="index_files/figure-revealjs/fig-haemo-filter-newborn-channels-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-filter-newborn-channels"><p class="caption">
+Figure&nbsp;24: Haemodynamic response after band-pass filter in selected channels.
 </p></section>
 <section id="newborn-data-11" class="slide level2">
 <h2>Newborn data</h2>
-<h3 id="haemodynamic-response-hbo-hbr-7">Haemodynamic response (HbO, HbR)</h3>
-
-<img data-src="index_files/figure-revealjs/fig-haemo-psd-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-psd-newborn"><p class="caption">
-Figure&nbsp;27: Haemodynamic response power spectral density.
-</p></section>
-<section id="newborn-data-12" class="slide level2">
-<h2>Newborn data</h2>
-<h3 id="haemodynamic-response-hbo-hbr-8">Haemodynamic response (HbO, HbR)</h3>
-
-<img data-src="index_files/figure-revealjs/fig-haemo-filter-newborn-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-filter-newborn"><p class="caption">
-Figure&nbsp;28: Haemodynamic response after band-pass filter.
-</p></section>
-<section id="newborn-data-13" class="slide level2">
-<h2>Newborn data</h2>
-<h3 id="haemodynamic-response-hbo-hbr-9">Haemodynamic response (HbO, HbR)</h3>
-
-<img data-src="index_files/figure-revealjs/fig-haemo-filter-newborn-channels-output-1.png" class="r-stretch quarto-figure-center" id="fig-haemo-filter-newborn-channels"><p class="caption">
-Figure&nbsp;29: Haemodynamic response after band-pass filter in selected channels.
-</p></section>
-<section id="newborn-data-14" class="slide level2">
-<h2>Newborn data</h2>
 <h3 id="epoching">Epoching</h3>
-<div class="cell" data-execution_count="31">
-<div id="tbl-annotations-newborns" class="cell quarto-float quarto-figure quarto-figure-center" data-execution_count="31">
+<div class="cell" data-execution_count="26">
+<div id="tbl-annotations-newborns" class="cell quarto-float quarto-figure quarto-figure-center" data-execution_count="26">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-annotations-newborns-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: Triggers/annotations in registered dataset.
 </figcaption>
 <div aria-describedby="tbl-annotations-newborns-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -681,42 +682,40 @@ Table&nbsp;1: Triggers/annotations in registered dataset.
 </div>
 </div>
 </section>
-<section id="newborn-data-15" class="slide level2">
+<section id="newborn-data-12" class="slide level2">
 <h2>Newborn data</h2>
 <h3 id="epoching-1">Epoching</h3>
 
 <img data-src="index_files/figure-revealjs/fig-epochs-newborns-output-1.png" class="r-stretch quarto-figure-center" id="fig-epochs-newborns"><p class="caption">
-Figure&nbsp;30: Epoched haemodynamic response function.
+Figure&nbsp;25: Epoched haemodynamic response function.
 </p></section>
-<section id="newborn-data-16" class="slide level2">
+<section id="newborn-data-13" class="slide level2">
 <h2>Newborn data</h2>
 <h3 id="epoching-2">Epoching</h3>
 
 <img data-src="index_files/figure-revealjs/fig-epochs-newborn-butterfly-output-1.png" class="r-stretch quarto-figure-center" id="fig-epochs-newborn-butterfly"><p class="caption">
-Figure&nbsp;31: Epoched haemodynamic response function across channels.
+Figure&nbsp;26: Epoched haemodynamic response function across channels.
 </p></section>
-<section id="newborn-data-17" class="slide level2">
+<section id="newborn-data-14" class="slide level2">
 <h2>Newborn data</h2>
 <h3 id="block-averages">Block averages</h3>
 
 <img data-src="index_files/figure-revealjs/fig-avg-newborn-hbo-output-1.png" class="r-stretch quarto-figure-center" id="fig-avg-newborn-hbo"><p class="caption">
-Figure&nbsp;32: Averaged HbO response across conditions.
+Figure&nbsp;27: Averaged HbO response across conditions.
 </p></section>
-<section id="newborn-data-18" class="slide level2">
+<section id="newborn-data-15" class="slide level2">
 <h2>Newborn data</h2>
 <h3 id="block-averages-1">Block averages</h3>
 
 <img data-src="index_files/figure-revealjs/fig-avg-newborn-hbr-output-1.png" class="r-stretch quarto-figure-center" id="fig-avg-newborn-hbr"><p class="caption">
-Figure&nbsp;33: Averaged HbR response across conditions.
-</p></section></section>
+Figure&nbsp;28: Averaged HbR response across conditions.
+</p></section>
+<section id="section" class="slide level2" data-background-image="img/thanks.png">
+<h2></h2>
+</section></section>
+<section>
 <section id="questions" class="title-slide slide level1 center">
 <h1>Questions?</h1>
-
-</section>
-
-<section>
-<section id="appendix" class="title-slide slide level1 center">
-<h1>Appendix</h1>
 
 </section>
 <section id="references" class="slide level2 smaller scrollable">
@@ -733,6 +732,12 @@ Arco, Juan E, Carlos González-Garcı́a, Paloma Dı́az-Gutiérrez, Javier Ram�
 <div id="ref-delaire2025nirstorm" class="csl-entry" role="listitem">
 Delaire, Édouard, Thomas Vincent, Zhengchen Cai, Alexis Machado, Laurent Hugueville, Denis Schwartz, Francois Tadel, et al. 2025. <span>“NIRSTORM: A Brainstorm Extension Dedicated to Functional Near-Infrared Spectroscopy Data Analysis, Advanced 3D Reconstructions, and Optimal Probe Design.”</span> <em>Neurophotonics</em> 12 (2): 025011–11.
 </div>
+<div id="ref-fabbri2004optical" class="csl-entry" role="listitem">
+Fabbri, Francesco, Angelo Sassaroli, Michael E Henry, and Sergio Fantini. 2004. <span>“Optical Measurements of Absorption Changes in Two-Layered Diffusive Media.”</span> <em>Physics in Medicine &amp; Biology</em> 49 (7): 1183.
+</div>
+<div id="ref-fishburn2019temporal" class="csl-entry" role="listitem">
+Fishburn, Frank A, Ruth S Ludlum, Chandan J Vaidya, and Andrei V Medvedev. 2019. <span>“Temporal Derivative Distribution Repair (TDDR): A Motion Correction Method for fNIRS.”</span> <em>Neuroimage</em> 184: 171–79.
+</div>
 <div id="ref-fu2021devfold" class="csl-entry" role="listitem">
 Fu, Xiaoxue, and John E Richards. 2021. <span>“devfOLD: A Toolbox for Designing Age-Specific fNIRS Channel Placement.”</span> <em>Neurophotonics</em> 8 (4): 045003–3.
 </div>
@@ -747,6 +752,12 @@ Huppert, Theodore J, Solomon G Diamond, Maria A Franceschini, and David A Boas. 
 </div>
 <div id="ref-luke2021analysis" class="csl-entry" role="listitem">
 Luke, Robert, Eric Larson, Maureen J Shader, Hamish Innes-Brown, Lindsey Van Yper, Adrian KC Lee, Paul F Sowman, and David McAlpine. 2021. <span>“Analysis Methods for Measuring Passive Auditory fNIRS Responses Generated by a Block-Design Paradigm.”</span> <em>Neurophotonics</em> 8 (2): 025008–8.
+</div>
+<div id="ref-pinti2019current" class="csl-entry" role="listitem">
+Pinti, Paola, Felix Scholkmann, Antonia Hamilton, Paul Burgess, and Ilias Tachtsidis. 2019. <span>“Current Status and Issues Regarding Pre-Processing of fNIRS Neuroimaging Data: An Investigation of Diverse Signal Filtering Methods Within a General Linear Model Framework.”</span> <em>Frontiers in Human Neuroscience</em> 12: 505.
+</div>
+<div id="ref-pollonini2016phoebe" class="csl-entry" role="listitem">
+Pollonini, Luca, Heather Bortfeld, and John S Oghalai. 2016. <span>“PHOEBE: A Method for Real Time Mapping of Optodes-Scalp Coupling in Functional Near-Infrared Spectroscopy.”</span> <em>Biomedical Optics Express</em> 7 (12): 5104–19.
 </div>
 <div id="ref-santosa2018nirs" class="csl-entry" role="listitem">
 Santosa, Hendrik, Xuetong Zhai, Frank Fishburn, and Theodore Huppert. 2018. <span>“The NIRS Brain AnalyzIR Toolbox.”</span> <em>Algorithms</em> 11 (5): 73.
