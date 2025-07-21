@@ -572,8 +572,8 @@ Figure&nbsp;24: Haemodynamic response after band-pass filter in selected channel
 <section id="newborn-data-11" class="slide level2">
 <h2>Newborn data</h2>
 <h3 id="epoching">Epoching</h3>
-<div class="cell" data-execution_count="26">
-<div id="tbl-annotations-newborns" class="cell quarto-float quarto-figure quarto-figure-center" data-execution_count="26">
+<div class="cell" data-execution_count="27">
+<div id="tbl-annotations-newborns" class="cell quarto-float quarto-figure quarto-figure-center" data-execution_count="27">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-annotations-newborns-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: Triggers/annotations in registered dataset.
@@ -1060,7 +1060,7 @@ Zimeo Morais, Guilherme Augusto, Joana Bisol Balardin, and João Ricardo Sato. 2
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/gongcastro\.github\.io\/dtb-2025-fnirs\/");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }
